@@ -1,0 +1,28 @@
+body {font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif; color: #000; background: #f1f1f1; font-size: 15px;cursor:url(../../img/default.cur),default;}
+a { text-decoration: none; color: #000; }
+a:hover { color: #218af1; text-decoration: none;cursor:url(../../img/pointer.cur),pointer;}
+header { margin: 0; width: 100%; z-index: 9; transition: all 0.4s; background: #fff;}
+
+.box, article { width: 1170px; margin: auto; overflow: hidden }
+
+.fl { float: left;}
+.logo {width:300px;overflow: hidden;}
+.logo-title a{color: #5bc0de; }
+.logo-title {display:inline-block;font-size: 28px; color: #5bc0de; font-weight: bold}
+.logo-text {color: #888;}
+.logo img {margin-top: 10px; width: 70px; float: left; margin-right: 10px;border-radius: 35px;border: 0px solid #1487f4;opacity: 0.8;display: block; }
+
+.search { float: right; margin-top: 25px; border-radius: 0 5px 5px 0; width: 400px; }
+.search .input_submit { font-size: 15px; width: 100px; cursor: pointer; }
+.search .input_text { border: 0; line-height: 36px; height: 36px; outline: none; width: 300px; background: #f3f3f3; float: left; text-indent: 1em; }
+
+.topnav {
+    line-height: 30px;
+    background:linear-gradient(#fff,#d4d7db);
+    background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#d4d7db));
+    box-shadow:0 4px 4px rgba(0,0,0,.2);
+    -webkit-box-shadow:0 4px 4px rgba(0,0,0,.2);
+}
+ul {display: flex;justify-content: space-around;}
+
+#startList li {font-size: 16px; margin-right: 10px;float: left; list-style:none; display:inline-block;}
