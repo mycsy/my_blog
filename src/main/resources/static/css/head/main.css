@@ -23,6 +23,57 @@ header { margin: 0; width: 100%; z-index: 9; transition: all 0.4s; background: #
     box-shadow:0 4px 4px rgba(0,0,0,.2);
     -webkit-box-shadow:0 4px 4px rgba(0,0,0,.2);
 }
-ul {display: flex;justify-content: space-around;}
-
+#startList {display: flex;justify-content: space-around;}
 #startList li {font-size: 16px; margin-right: 10px;float: left; list-style:none; display:inline-block;}
+
+footer {
+    border-top:#5ac8fa solid 10px ;
+    background: #333;
+    width: 100%;
+    padding: 30px 0;
+    color: #777;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+.box, article {
+    width: 1170px;
+    overflow: hidden;
+}
+.wx-box {
+    overflow: hidden;
+    float: left;
+    margin-right: 20px;
+}
+.wx-box ul {
+    float: left;
+    text-align: center;
+}
+.wx-box li {
+    text-align: center;
+    margin: 0 10px;
+    float: left;
+    list-style: none;
+}
+.wx-box img {display: block; margin-bottom: 5px}
+.endnav b { font-size: 16px; color: #34aadc; margin-bottom: 15px; display: block; }
+.endnav p { margin-bottom: 5px; }
+.endnav a { color: #777 }
+.endnav a:hover { text-decoration: underline }
+html {
+    overflow-y: scroll;
+}
+
+:root {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+:root body {
+    position: absolute;
+}
+
+body {
+    width: 100vw;
+    overflow: hidden;
+}
