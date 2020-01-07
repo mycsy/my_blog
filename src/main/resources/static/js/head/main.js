@@ -8,5 +8,5 @@ $(document).ready(function () {
 
 function getUrl(url) {
     var main = $('#main');
-    main.html("<iframe border='none' style='border:0; padding:15px' scrolling='no' width='100%' height='3000px' src='" + url + "'></iframe>");
+    main.html("<iframe border='none' style='border:0; padding:15px' scrolling='no' width='100%' height='2000' src='" + url + "'></iframe>");
 }
