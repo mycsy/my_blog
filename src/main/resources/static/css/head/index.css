@@ -54,12 +54,17 @@ h2 {font-size: 18px;}
     overflow: hidden;
 }
 .div_article_content {
+    margin-top: 5px;
     color: #a0a0a0;
     word-wrap: break-word;
     word-break: break-all;
     width: 100%;
 }
-.div_article_title {
+.label-box {display: block;margin-top: 15px}
+.art-lab {opacity:0.8;border: #5bc0de solid 1px;width: 80px;float: left;margin-left: 5px;text-align: center;background: #5bc0de;border-radius: 10px;color: #ffffff;font-family: "Arial Black"}
+.art-lab :hover{font-size: 30px}
+.div_article_title {left: -15px}
+.article_title{
     font-size: 22px;
 }
 strong {

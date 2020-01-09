@@ -5,6 +5,7 @@
     <title>网站首页</title>
     <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/head/index.css">
+    <link rel="stylesheet" href="../../css/datouwang.css">
     <script src="../../js/jquery-3.4.1.min.js"></script>
     <script src="../../bootstrap/bootstrap.min.js"></script>
     <script src="../../js/head/index.js"></script>
@@ -65,10 +66,17 @@
                         <div class="list-group-item item_article" v-for="article in articleList">
                             <div class="row">
                                 <div class="div_center col-xs-10">
-                                    <div class="list-group-item-heading div_article_title">
-                                        <strong>
-                                            {{article.articleTitle}}
-                                        </strong>
+                                    <div class="list-group-item-heading row">
+                                        <div class="div_article_title col-xs-6">
+                                            <strong class="article_title">
+                                                {{article.articleTitle}}
+                                            </strong>
+                                        </div>
+                                        <div class="label-box col-xs-6">
+                                            <a><div class="art-lab shake shake-opacity">Java</div></a>
+                                            <a><div class="art-lab shake shake-opacity">CSS</div></a>
+                                            <a><div class="art-lab shake shake-opacity">MySQL</div></a>
+                                        </div>
                                     </div>
                                     <p class="list-group-item-text div_article_content">
                                         {{article.articleIntroduction}}
