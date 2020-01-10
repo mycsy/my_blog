@@ -163,7 +163,7 @@
   </select>
 
   <select id="findPageInfo" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
-    SELECT <include refid="Blob_Column_List"/> FROM article
+    SELECT <include refid="Base_Column_List"/> FROM article
     LIMIT #{startRow},#{pageSize}
   </select>
 

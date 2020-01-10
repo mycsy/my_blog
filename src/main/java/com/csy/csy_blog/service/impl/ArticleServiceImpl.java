@@ -29,13 +29,13 @@ public class ArticleServiceImpl implements ArticleService{
         result.setQuery(query);
         Map<String, Object> params = result.getQuery().build();
         int amount = articleMapper.findPageCount(params);
-        result.setTotalRecord(amount);
+        result.setTotal(amount);
         if (amount == 0) {
             return result;
         }
         List<Article> list = articleMapper.findPageInfo(params);
         if (!CollectionUtils.isEmpty(list)) {
-            result.setResultList(list);
+            result.setRows(list);
         }
         return result;
     }

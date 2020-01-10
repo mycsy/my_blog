@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表</title>
+    <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/cms/index.css">
+</head>
+<body>
+<div>
+    <ol class="breadcrumb">
+        <li class="active">菜单</li>
+        <li class="active">文章管理</li>
+    </ol>
+    <div class="panel panel-default">
+        <div class="panel-heading">搜索</div>
+        <div class="panel-body">
+            <form role="form" class="form-inline">
+                <div class="form-group">
+                    <label for="name">文章名称</label>
+                    <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                </div>
+            </form>
+        </div>
+    </div>
+    <table id="article_table" class="table text-nowrap table-striped"></table>
+</div>
+</body>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../bootstrap/bootstrap.min.js"></script>
+<script src="../../bootstrap/bootstrap-table.min.js"></script>
+<script src="../../bootstrap/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../js/cms/article-list.js"></script>
+</html>
