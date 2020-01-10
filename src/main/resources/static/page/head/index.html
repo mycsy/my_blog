@@ -73,9 +73,9 @@
                                             </strong>
                                         </div>
                                         <div class="label-box col-xs-6">
-                                            <a><div class="art-lab shake shake-opacity">Java</div></a>
-                                            <a><div class="art-lab shake shake-opacity">CSS</div></a>
-                                            <a><div class="art-lab shake shake-opacity">MySQL</div></a>
+                                            <a v-for="lab in article.labelList">
+                                                <div class="art-lab shake shake-opacity">{{lab.labelName}}</div>
+                                            </a>
                                         </div>
                                     </div>
                                     <p class="list-group-item-text div_article_content">
@@ -106,22 +106,13 @@
         <!--分割线-->
         <div class="panel">
             <div class="panel-body">
-                热门标签
+                所有标签
                 <span class="tab-a-more"><a href="#" rel='nofollow' title="查看更多"><i></i><i></i><i></i></a></span>
             </div>
             <div class="panel-footer row lab-list">
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
-                <a><div class="col-xs-2 lab-box"><div class="lab">网页设计</div></div></a>
+                <a v-for="label in labelList">
+                    <div class="col-xs-2 lab-box"><div class="lab">{{label.labelName}}</div></div>
+                </a>
             </div>
         </div>
     </div>

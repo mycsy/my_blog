@@ -1,14 +1,18 @@
 package com.csy.csy_blog.service.impl;
 
 import com.csy.csy_blog.dao.ArticleMapper;
+import com.csy.csy_blog.dao.LabelMapper;
 import com.csy.csy_blog.domain.Article;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.service.ArticleService;
+import com.csy.csy_blog.service.LabelService;
+import com.csy.csy_blog.vomain.ArticleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +20,9 @@ import java.util.Map;
 public class ArticleServiceImpl implements ArticleService{
     @Autowired
     private ArticleMapper articleMapper;
+    @Autowired
+    private LabelService labelService;
+
     @Override
     public QueryResult<Article> findPageInfo(BaseQuery query) {
         QueryResult<Article> result = new QueryResult<Article>();
@@ -39,8 +46,10 @@ public class ArticleServiceImpl implements ArticleService{
      * @return
      */
     @Override
-    public List<Article> findHotList(int limit) {
+    public List<ArticleVo> findHotList(int limit) {
         List<Article> list = articleMapper.findHotArticleList(limit);
-        return list;
+        //填充标签
+        List<ArticleVo> voList = labelService.fillAutoLabelForArticle(list);
+        return voList;
     }
 }

@@ -3,6 +3,7 @@ package com.csy.csy_blog.service;
 import com.csy.csy_blog.domain.Article;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
+import com.csy.csy_blog.vomain.ArticleVo;
 
 import java.util.List;
 
@@ -19,5 +20,5 @@ public interface ArticleService{
      * @param limit
      * @return
      */
-    List<Article> findHotList(int limit);
+    List<ArticleVo> findHotList(int limit);
 }

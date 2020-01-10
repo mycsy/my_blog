@@ -111,9 +111,12 @@ strong {
     background: #f1f1f1;
     line-height: 30px;
     border: #ffffff solid 2px;
+    color: #286090;
 }
 .lab {
     text-align: center;
+    font-weight: bold;
+    font-size: 15px;
 }
 .lab-list a{
     color: #000;

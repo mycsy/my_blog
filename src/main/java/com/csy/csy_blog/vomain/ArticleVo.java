@@ -7,7 +7,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class IndexVo {
-    List<ArticleVo> articleList;//文章集合
-    List<Label> labelList;//标签集合
+public class ArticleVo extends Article{
+    private List<LabelVo> labelList;
 }
