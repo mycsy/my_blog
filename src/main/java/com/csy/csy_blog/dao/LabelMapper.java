@@ -4,6 +4,7 @@ import com.csy.csy_blog.domain.Label;
 import com.csy.csy_blog.vomain.LabelVo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface LabelMapper {
     int deleteByPrimaryKey(Long id);
@@ -30,4 +31,8 @@ public interface LabelMapper {
      * @return
      */
     List<Label> findAllLabel();
+
+    int findPageCount(Map<String, Object> params);
+
+    List<Label> findPageInfo(Map<String, Object> params);
 }

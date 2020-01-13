@@ -89,4 +89,13 @@
   <select id="findAllLabel" resultMap="BaseResultMap">
       SELECT <include refid="Base_Column_List"/> FROM label
   </select>
+
+  <select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+    SELECT count(1) FROM label
+  </select>
+
+  <select id="findPageInfo" resultMap="BaseResultMap" parameterType="java.util.Map">
+    SELECT <include refid="Base_Column_List"/> FROM label
+    LIMIT #{startRow},#{pageSize}
+  </select>
 </mapper>

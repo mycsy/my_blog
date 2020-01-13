@@ -3,6 +3,8 @@ package com.csy.csy_blog.service.impl;
 import com.csy.csy_blog.dao.LabelMapper;
 import com.csy.csy_blog.domain.Article;
 import com.csy.csy_blog.domain.Label;
+import com.csy.csy_blog.pojo.BaseQuery;
+import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.service.LabelService;
 import com.csy.csy_blog.vomain.ArticleVo;
 import com.csy.csy_blog.vomain.LabelVo;
@@ -51,4 +53,20 @@ public class LabelServiceImpl implements LabelService{
     public List<Label> findAllLabel() {
         return labelMapper.findAllLabel();
     }
+
+    @Override
+    public QueryResult<Label> findPageInfo(BaseQuery query) {
+        QueryResult<Label> result = new QueryResult<Label>();
+        result.setQuery(query);
+        Map<String, Object> params = result.getQuery().build();
+        int amount = labelMapper.findPageCount(params);
+        result.setTotal(amount);
+        if (amount == 0) {
+            return result;
+        }
+        List<Label> list = labelMapper.findPageInfo(params);
+        if (!CollectionUtils.isEmpty(list)) {
+            result.setRows(list);
+        }
+        return result;    }
 }
