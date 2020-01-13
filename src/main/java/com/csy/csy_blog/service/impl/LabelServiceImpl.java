@@ -6,6 +6,7 @@ import com.csy.csy_blog.domain.Label;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.service.LabelService;
+import com.csy.csy_blog.utils.SnowflakeIdWorker;
 import com.csy.csy_blog.vomain.ArticleVo;
 import com.csy.csy_blog.vomain.LabelVo;
 import org.springframework.beans.BeanUtils;
@@ -22,6 +23,8 @@ import java.util.stream.Collectors;
 public class LabelServiceImpl implements LabelService{
     @Autowired
     private LabelMapper labelMapper;
+    @Autowired
+    private SnowflakeIdWorker snowflakeIdWorker;
 
     @Override
     public List<ArticleVo> fillAutoLabelForArticle(List<Article> articleList) {
@@ -68,5 +71,13 @@ public class LabelServiceImpl implements LabelService{
         if (!CollectionUtils.isEmpty(list)) {
             result.setRows(list);
         }
-        return result;    }
+        return result;
+    }
+
+    @Override
+    public void create(Label label) {
+        Long id = snowflakeIdWorker.nextId();
+        label.setId(id);
+        labelMapper.insert(label);
+    }
 }

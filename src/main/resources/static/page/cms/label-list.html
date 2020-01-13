@@ -5,6 +5,7 @@
     <title>标签列表</title>
     <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../bootstrap/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../bootstrap/toastr.min.css">
 </head>
 <body>
 <div>
@@ -33,7 +34,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">创建新标签</div>
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="formData">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="labelName" class="col-sm-2 control-label">标签名称</label>
@@ -50,7 +51,7 @@
                     </div>
                 </form>
                 <div class="modal-footer">
-                    <button class="btn btn-success" type="submit">保存</button>
+                    <button class="btn btn-success" type="submit" id="save">保存</button>
                     <button class="btn btn-danger" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -59,6 +60,9 @@
 </div>
 </body>
 <script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/ajax.js"></script>
+<script src="../../bootstrap/toastr.min.js"></script>
+<script src="../../js/config.js"></script>
 <script src="../../bootstrap/bootstrap.min.js"></script>
 <script src="../../bootstrap/bootstrap-table.min.js"></script>
 <script src="../../bootstrap/bootstrap-table-zh-CN.min.js"></script>

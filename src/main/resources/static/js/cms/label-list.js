@@ -10,7 +10,6 @@ $('#label_table').bootstrapTable({
     pageNumber : 1, //当前第几页
     pageSize: "10",
     cache : false,
-    pageList : [ 10, 25, 50, 100 ], //记录数可选列表
     columns: [
         {
             field: 'labelName',
@@ -51,3 +50,20 @@ function queryParams(params) {
     console.log(query);
     return JSON.stringify(query);
 }
+
+/**
+ * 提交添加
+ */
+$('#save').click(function () {
+    jQuery.axspost('/cms/label/create',formDataToJson($('#formData')),function (res) {
+        if (res.success) {
+            $('#addNew').modal('hide');
+            toastr.success("标签添加成功");
+        }
+    },function (res) {
+        $('#addNew').modal('hide');
+        toastr.error("标签添添加失败，请重试");
+    })
+});
+
+

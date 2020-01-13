@@ -28,4 +28,10 @@ public interface LabelService {
      * @return
      */
     QueryResult<Label> findPageInfo(BaseQuery query);
+
+    /**
+     * 创建标签
+     * @param label
+     */
+    void create(Label label);
 }

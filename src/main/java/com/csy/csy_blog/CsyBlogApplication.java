@@ -1,5 +1,6 @@
 package com.csy.csy_blog;
 
+import com.csy.csy_blog.utils.SnowflakeIdWorker;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -24,5 +25,9 @@ public class CsyBlogApplication {
 				registry.addMapping("/*/*").allowedOrigins("*");
 			}
 		};
+	}
+	@Bean
+	public SnowflakeIdWorker getSnowflakeIdWorker() {
+		return new SnowflakeIdWorker(1,3);
 	}
 }
