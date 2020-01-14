@@ -65,24 +65,27 @@
                         <!-- 文章列表 -->
                         <div class="list-group-item item_article" v-for="article in articleList">
                             <div class="row">
-                                <div class="div_center col-xs-10">
+                                <div class="div_center col-xs-10" style="height: 90px;">
                                     <div class="list-group-item-heading row">
-                                        <div class="div_article_title col-xs-6">
+                                        <div class="div_article_title col-xs-12">
                                             <strong class="article_title">
                                                 {{article.articleTitle}}
                                             </strong>
-                                        </div>
-                                        <div class="label-box col-xs-6">
-                                            <a v-for="lab in article.labelList">
-                                                <div class="art-lab shake shake-opacity">{{lab.labelName}}</div>
-                                            </a>
                                         </div>
                                     </div>
                                     <p class="list-group-item-text div_article_content">
                                         {{article.articleIntroduction}}
                                     </p>
                                     <div class="read-box">
-                                        <a class="read" @click="go(article.id)"><span class="glyphicon glyphicon-triangle-bottom"></span>阅读全文</a>
+
+                                    </div>
+                                    <div class="label-box">
+                                        <a  @click="go(article.id)">
+                                        <div class="read-lab shake shake-opacity">阅读全文</div>
+                                        </a>
+                                        <a v-for="lab in article.labelList">
+                                            <div class="art-lab shake shake-opacity">{{lab.labelName}}</div>
+                                        </a>
                                     </div>
                                     <div class="show-detail">
                                         <span class="glyphicon glyphicon-eye-open start"><span class="show-font">{{article.articleViews}}</span></span>
