@@ -13,12 +13,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cms/label")
 public class LabelController {
     @Autowired
     private LabelService labelService;
 
+    /**
+     * 分页查询标签
+     * @param query
+     * @return
+     */
     @RequestMapping("/page")
     public QueryResult<Label> findPageInfo(@RequestBody BaseQuery query) {
         return labelService.findPageInfo(query);
@@ -40,4 +47,16 @@ public class LabelController {
         }
         return ResultHelper.renderAsJsonWipeData(result);
     }
-}
+
+    @RequestMapping("/find/all")
+    public JSONObject findAll() {
+        Result result = new Result();
+        result.setSuccess(true);
+        try {
+            List<Label> labelList = labelService.findAllLabel();
+            result.addModel("data", labelList);
+        } catch (Exception e) {
+
+        }
+        return ResultHelper.renderAsJsonWipeData(result);
+    }}

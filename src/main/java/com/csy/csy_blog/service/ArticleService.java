@@ -21,4 +21,10 @@ public interface ArticleService{
      * @return
      */
     List<ArticleVo> findHotList(int limit);
+
+    /**
+     * 创建文章
+     * @param param
+     */
+    void create(ArticleVo param);
 }

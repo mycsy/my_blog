@@ -42,12 +42,10 @@ function actionFormatter(value, row, index) {
 }
 
 function queryParams(params) {
-    console.log(params);
     var query = {
         page: this.pageNumber,
         limit: this.pageSize
-    }
-    console.log(query);
+    };
     return JSON.stringify(query);
 }
 
@@ -59,6 +57,7 @@ $('#save').click(function () {
         if (res.success) {
             $('#addNew').modal('hide');
             toastr.success("标签添加成功");
+            $('#label_table').bootstrapTable('refresh',{});
         }
     },function (res) {
         $('#addNew').modal('hide');

@@ -66,3 +66,6 @@ function queryParams(params) {
     console.log(query);
     return JSON.stringify(query);
 }
+$('#addArticle').click(function () {
+    window.location.href = 'article-add.html'
+});
