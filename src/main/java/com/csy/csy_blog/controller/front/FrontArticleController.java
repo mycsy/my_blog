@@ -1,9 +1,6 @@
-package com.csy.csy_blog.controller.cms;
+package com.csy.csy_blog.controller.front;
 
 import com.alibaba.fastjson.JSONObject;
-import com.csy.csy_blog.domain.Article;
-import com.csy.csy_blog.pojo.BaseQuery;
-import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.pojo.Result;
 import com.csy.csy_blog.service.ArticleService;
 import com.csy.csy_blog.utils.ResultHelper;
@@ -13,35 +10,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import javax.xml.ws.Action;
 
 @RestController
-@RequestMapping("/cms/article")
-public class ArticleController {
+@RequestMapping("/front/article")
+public class FrontArticleController {
     @Autowired
     private ArticleService articleService;
 
     /**
-     * 分页查询
-     * @param query
+     * 查询文章全文
+     * @param article_id
      * @return
      */
-    @RequestMapping("/page")
-    public QueryResult<Article> findPageInfo(@RequestBody BaseQuery query) {
-        return articleService.findPageInfo(query);
-    }
-
-    /**
-     * 创建文章
-     * @param param
-     * @return
-     */
-    @RequestMapping("/create")
-    public JSONObject create(@RequestBody ArticleVo param) {
+    @RequestMapping("/find/detail")
+    public JSONObject create(Long article_id) {
         Result result = new Result();
         result.setSuccess(true);
         try {
-            articleService.create(param);
+            ArticleVo articleVo = articleService.findById(article_id);
+            result.addModel("data", articleVo);
         } catch (Exception e) {
 
         }

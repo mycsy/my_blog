@@ -5,6 +5,7 @@ import com.csy.csy_blog.domain.Label;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.vomain.ArticleVo;
+import com.csy.csy_blog.vomain.LabelVo;
 
 import java.util.List;
 
@@ -34,4 +35,9 @@ public interface LabelService {
      * @param label
      */
     void create(Label label);
+
+    /**
+     * 通过文章id查询对应的标签
+     */
+    List<LabelVo> findVoListByArticleId(Long articleId);
 }

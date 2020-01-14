@@ -82,7 +82,7 @@
                                         {{article.articleIntroduction}}
                                     </p>
                                     <div class="read-box">
-                                        <a class="read"><span class="glyphicon glyphicon-triangle-bottom"></span>阅读全文</a>
+                                        <a class="read" @click="go(article.id)"><span class="glyphicon glyphicon-triangle-bottom"></span>阅读全文</a>
                                     </div>
                                     <div class="show-detail">
                                         <span class="glyphicon glyphicon-eye-open start"><span class="show-font">{{article.articleViews}}</span></span>

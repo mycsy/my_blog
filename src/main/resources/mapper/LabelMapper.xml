@@ -98,4 +98,13 @@
     SELECT <include refid="Base_Column_List"/> FROM label
     LIMIT #{startRow},#{pageSize}
   </select>
+  <select id="findVoListByArticleId" resultMap="voMap">
+        SELECT
+            b.*,a.article_id
+        FROM
+            article_label a
+        LEFT JOIN label b ON a.label_id = b.id
+        WHERE
+            article_id = #{articleId}
+  </select>
 </mapper>

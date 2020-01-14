@@ -80,4 +80,9 @@ public class LabelServiceImpl implements LabelService{
         label.setId(id);
         labelMapper.insert(label);
     }
+
+    @Override
+    public List<LabelVo> findVoListByArticleId(Long articleId) {
+        return labelMapper.findVoListByArticleId(articleId);
+    }
 }

@@ -35,4 +35,11 @@ public interface LabelMapper {
     int findPageCount(Map<String, Object> params);
 
     List<Label> findPageInfo(Map<String, Object> params);
+
+    /**
+     * 通过文章id查询对应的标签
+     * @param articleId
+     * @return
+     */
+    List<LabelVo> findVoListByArticleId(Long articleId);
 }

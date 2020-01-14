@@ -4,6 +4,11 @@ $(function () {
         data: {
             articleList: [],
             labelList: []
+        },
+        methods: {
+            go: function (article_id) {
+                window.location.href="article-detail.html?article_id="+article_id;
+            }
         }
     });
     jQuery.get("/front/index/get",function (res) {

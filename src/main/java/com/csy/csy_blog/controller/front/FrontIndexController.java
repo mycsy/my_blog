@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/front/index")
-public class IndexController {
+public class FrontIndexController {
     @Autowired
     private ArticleService articleService;
     @Autowired

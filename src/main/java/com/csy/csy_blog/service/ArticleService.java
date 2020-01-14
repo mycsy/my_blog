@@ -27,4 +27,11 @@ public interface ArticleService{
      * @param param
      */
     void create(ArticleVo param);
+
+    /**
+     * 查询文章详情
+     * @param articleId
+     * @return
+     */
+    ArticleVo findById(Long articleId);
 }

@@ -5,6 +5,7 @@ import com.csy.csy_blog.dao.ArticleMapper;
 import com.csy.csy_blog.dao.LabelMapper;
 import com.csy.csy_blog.domain.Article;
 import com.csy.csy_blog.domain.ArticleLabel;
+import com.csy.csy_blog.domain.Label;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.service.ArticleService;
@@ -91,6 +92,21 @@ public class ArticleServiceImpl implements ArticleService{
         //插入
         articleMapper.insert(article);
         articleLabelMapper.insertBatch(als);
+    }
 
+    /**
+     * 查询文章详情
+     * @param articleId
+     * @return
+     */
+    @Override
+    public ArticleVo findById(Long articleId) {
+        Article article = articleMapper.selectByPrimaryKey(articleId);
+        //获取标签
+        List<LabelVo> labelList = labelService.findVoListByArticleId(articleId);
+        ArticleVo articleVo = new ArticleVo();
+        BeanUtils.copyProperties(article, articleVo);
+        articleVo.setLabelList(labelList);
+        return articleVo;
     }
 }

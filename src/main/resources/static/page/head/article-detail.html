@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情</title>
+    <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/cms/article-detail.css">
+
+</head>
+<body>
+    <div class="container" id="article">
+        <center><h3>{{article.articleTitle}}</h3></center>
+        <div class="row article-other">
+            <div class="col-xs-12 label-box bg-success">
+                <span v-for="lab in article.labelList" class="art-lab">
+                    {{lab.labelName}}
+                </span>
+            </div>
+            <div class="col-xs-12 star-box bg-info">
+                <span class="glyphicon glyphicon-time start"><span class="show-font">{{article.articleDate}}</span></span>
+                <span class="glyphicon glyphicon-eye-open start"><span class="show-font">{{article.articleViews}}</span></span>
+                <span class="glyphicon glyphicon-heart start"><span class="show-font">{{article.articleLikeCount}}</span></span>
+                <span class="glyphicon glyphicon-envelope start"><span class="show-font">{{article.articleCommentCount}}</span></span>
+            </div>
+        </div>
+        <div id="articleContent"></div>
+    </div>
+</body>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../bootstrap/bootstrap.min.js"></script>
+<script src="../../js/config.js"></script>
+<script src="../../js/ajax.js"></script>
+<script src="../../js/vue/vue.js"></script>
+<script src="../../js/head/article-detail.js"></script>
+</html>
