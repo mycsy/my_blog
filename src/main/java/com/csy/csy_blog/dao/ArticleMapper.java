@@ -27,4 +27,6 @@ public interface ArticleMapper {
     List<Article> findPageInfo(Map<String, Object> params);
 
     List<Article> findHotArticleList(int limit);
+
+    void addArticleReadCount(Long articleId);
 }

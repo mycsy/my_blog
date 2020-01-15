@@ -1,6 +1,7 @@
 package com.csy.csy_blog.controller.front;
 
 import com.alibaba.fastjson.JSONObject;
+import com.csy.csy_blog.aspect.ArticleReadCount;
 import com.csy.csy_blog.pojo.Result;
 import com.csy.csy_blog.service.ArticleService;
 import com.csy.csy_blog.utils.ResultHelper;
@@ -23,8 +24,9 @@ public class FrontArticleController {
      * @param article_id
      * @return
      */
+    @ArticleReadCount
     @RequestMapping("/find/detail")
-    public JSONObject create(Long article_id) {
+    public JSONObject findDetail(Long article_id) {
         Result result = new Result();
         result.setSuccess(true);
         try {

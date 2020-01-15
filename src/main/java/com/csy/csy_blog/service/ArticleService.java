@@ -34,4 +34,10 @@ public interface ArticleService{
      * @return
      */
     ArticleVo findById(Long articleId);
+
+    /**
+     * 文章阅读数增加
+     * @param articleId
+     */
+    void addArticleReadCount(Long articleId);
 }

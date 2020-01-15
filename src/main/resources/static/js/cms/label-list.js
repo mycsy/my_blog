@@ -57,7 +57,8 @@ $('#save').click(function () {
         if (res.success) {
             $('#addNew').modal('hide');
             toastr.success("标签添加成功");
-            $('#label_table').bootstrapTable('refresh',{});
+            /*$('#label_table').bootstrapTable('refresh',{});*/
+            window.location.reload();
         }
     },function (res) {
         $('#addNew').modal('hide');

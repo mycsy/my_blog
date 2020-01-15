@@ -109,4 +109,13 @@ public class ArticleServiceImpl implements ArticleService{
         articleVo.setLabelList(labelList);
         return articleVo;
     }
+
+    /**
+     * 文章阅读数增加
+     * @param articleId
+     */
+    @Override
+    public void addArticleReadCount(Long articleId) {
+        articleMapper.addArticleReadCount(articleId);
+    }
 }

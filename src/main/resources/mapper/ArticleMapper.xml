@@ -170,4 +170,8 @@
   <select id="findHotArticleList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     SELECT <include refid="Base_Column_List"/> FROM article ORDER BY article_views DESC LIMIT #{limit}
   </select>
+
+  <update id="addArticleReadCount" parameterType="java.lang.Long">
+    UPDATE article SET article_views = article_views + 1 WHERE id = #{articleId}
+  </update>
 </mapper>
