@@ -109,15 +109,16 @@ strong {
 .lab-box {
     margin-top: 10px;
     height: 36px;
-    background: #f1f1f1;
-    line-height: 30px;
-    border: #ffffff solid 2px;
+    line-height: 35px;
+    background: #dff0d8;
+    border: #ffffff solid 3px;
+    border-radius: 5px;
     color: #286090;
+    opacity: 0.9;
 }
 .lab {
     text-align: center;
-    font-weight: bold;
-    font-size: 15px;
+    font: 16px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
 }
 .lab-list a{
     color: #000;
