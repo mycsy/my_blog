@@ -21,12 +21,12 @@ h2 {font-size: 18px;}
     padding-top: 15px;
 }
 .headline-news-list li {
-    padding-left: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 30px;
     position: relative;
+    left: -20px;
 }
 .headline-news-list li span {margin-right: 5px; color: #5cb85c}
 .headline-news-list a {color: #000000;}
@@ -110,7 +110,7 @@ strong {
     margin-top: 10px;
     height: 36px;
     line-height: 35px;
-    background: #dff0d8;
+    background: #f1f1f1;
     border: #ffffff solid 3px;
     border-radius: 5px;
     color: #101010;
@@ -134,15 +134,69 @@ strong {
 }
 
 .share-list {
-    text-align: center;
 }
 .share-box {
-    text-align: center;
-    height: 200px;
-    background: #f1f1f1;
-    border: #ffffff solid 2px;
+    height: 80px;
+    background: #ffffff;
+    box-sizing: border-box;
+    border: #f2dede dashed 1px;
 }
-
+.share-content {
+    position: relative;
+    left: 15px;
+    margin-top: 20px;
+}
+.share-content h2{
+    margin-bottom: 5px;
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    width: 160px;
+}
+.share-content span {
+    font-size: 12px;
+    color: #8d9ab2;
+    position: absolute;
+    right: 10px;
+    top: -1px;
+}
+.share-content p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 12px;
+    padding-top: 5px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #8a8f99;
+    overflow: hidden;
+}
+.share-img {float: left;margin-top: 15px;}
+.d-list-hover {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    height: 80px;
+    background: #00aaff;
+    font-size: 14px;
+    line-height: 80px;
+    color: #fff;
+    text-align: center;
+}
+.d-list-hover em {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    font-style: normal;
+}
+.share-box:hover .d-list-hover{display: block}
 .link-box{text-align: center;margin-bottom: 10px;margin-top: 10px}
 .link {
     font-size: 15px;

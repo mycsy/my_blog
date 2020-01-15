@@ -118,4 +118,22 @@ public class ArticleServiceImpl implements ArticleService{
     public void addArticleReadCount(Long articleId) {
         articleMapper.addArticleReadCount(articleId);
     }
+
+    /**
+     * 查询推荐文章
+     * @return
+     */
+    @Override
+    public List<Article> findTopList() {
+        return articleMapper.findTopList();
+    }
+
+    /**
+     * 查询顶置文章
+     * @return
+     */
+    @Override
+    public Article findTopArticle() {
+        return articleMapper.findTopArticle();
+    }
 }

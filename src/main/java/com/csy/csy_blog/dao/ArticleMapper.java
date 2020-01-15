@@ -29,4 +29,8 @@ public interface ArticleMapper {
     List<Article> findHotArticleList(int limit);
 
     void addArticleReadCount(Long articleId);
+
+    List<Article> findTopList();
+
+    Article findTopArticle();
 }

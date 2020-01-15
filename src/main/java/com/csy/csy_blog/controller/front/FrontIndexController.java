@@ -35,6 +35,12 @@ public class FrontIndexController {
         result.setSuccess(true);
         try {
             IndexVo indexVo = new IndexVo();
+            //获取顶置文章
+            Article topArticle = articleService.findTopArticle();
+            indexVo.setTopArticle(topArticle);
+            //推荐文章集合
+            List<Article> topList = articleService.findTopList();
+            indexVo.setTopList(topList);
             //获取热门文章集合
             List<ArticleVo> articleList = articleService.findHotList(5);
             //获取所有标签

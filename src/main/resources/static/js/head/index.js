@@ -3,7 +3,9 @@ $(function () {
         el: '#index',
         data: {
             articleList: [],
-            labelList: []
+            labelList: [],
+            topArticle: {},
+            topList: []
         },
         methods: {
             go: function (article_id) {
@@ -15,6 +17,8 @@ $(function () {
         console.log(res);
         index.articleList = res.data.articleList;
         index.labelList = res.data.labelList;
-        console.log(index.labelList)
+        index.topList = res.data.topList;
+        index.topArticle = res.data.topArticle;
+        console.log(index)
     });
 })

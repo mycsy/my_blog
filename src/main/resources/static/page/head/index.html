@@ -37,15 +37,12 @@
         </div>
         <div id="news">
             <div id="news-box">
-                <h2 class="headline-news-title"><span>顶置</span><a>这是一条顶置消息</a></h2>
-                <p >这是介绍你打破你给的dslkfdkdv.xv.mxv.xm.vmxc,.vmx.vmx.vmx.cvmx.vmxcv.xvmx.哈哈哈哈</p>
+                <h2 class="headline-news-title"><span>顶置</span><a @click="go(topArticle.id)">{{topArticle.articleTitle}}</a></h2>
+                <p >{{topArticle.articleIntroduction}}</p>
                 <ul class="headline-news-list">
-                    <li><span class="glyphicon glyphicon-arrow-right"></span><a>这是一个文章链接</a></li>
-                    <li><span class="glyphicon glyphicon-arrow-right"></span><a>这是一个文章链接</a></li>
-                    <li><span class="glyphicon glyphicon-arrow-right"></span><a>这是一个文章链接</a></li>
-                    <li><span class="glyphicon glyphicon-arrow-right"></span><a>这是一个文章链接</a></li>
-                    <li><span class="glyphicon glyphicon-arrow-right"></span><a>这是一个文章链接</a></li>
-                    <li><span class="glyphicon glyphicon-arrow-right"></span><a>这是一个文章链接</a></li>
+                    <li v-for = "art in topList">
+                        <span class="glyphicon glyphicon-arrow-right"></span><a>{{art.articleTitle}}。</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -128,9 +125,45 @@
                 <span class="tab-a-more"><a href="#" rel='nofollow' title="查看更多"><i></i><i></i><i></i></a></span>
             </div>
             <div class="panel-footer row share-list">
-                <a><div class="col-xs-4 share-box"><div class="share">网页设计</div></div></a>
-                <a><div class="col-xs-4 share-box"><div class="share">网页设计</div></div></a>
-                <a><div class="col-xs-4 share-box"><div class="share">网页设计</div></div></a>
+                <div class="col-xs-4 share-box">
+                    <div class="share-img">
+                        <img src="../../img/editplus.jpg" height="50" width="50"/>
+                    </div>
+                    <div class="share-content">
+                        <h2>破解版EditPlus，好用的文件编辑器，内含破解码</h2>
+                        <span>2019-12-30</span>
+                        <p>软件介绍：免安装以及使用方法，点击下载</p>
+                    </div>
+                    <a class="d-list-hover">
+                        <em>安全下载</em>
+                    </a>
+                </div>
+                <div class="col-xs-4 share-box">
+                    <div class="share-img">
+                        <img src="../../img/editplus.jpg" height="50" width="50"/>
+                    </div>
+                    <div class="share-content">
+                        <h2>破解版EditPlus，好用的文件编辑器，内含破解码</h2>
+                        <span>2019-12-30</span>
+                        <p>软件介绍：免安装以及使用方法，点击下载</p>
+                    </div>
+                    <a class="d-list-hover">
+                        <em>前往下载</em>
+                    </a>
+                </div>
+                <div class="col-xs-4 share-box">
+                    <div class="share-img">
+                        <img src="../../img/editplus.jpg" height="50" width="50"/>
+                    </div>
+                    <div class="share-content">
+                        <h2>破解版EditPlus，好用的文件编辑器，内含破解码</h2>
+                        <span>2019-12-30</span>
+                        <p>软件介绍：免安装以及使用方法，点击下载</p>
+                    </div>
+                    <a class="d-list-hover">
+                        <em>安全下载</em>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

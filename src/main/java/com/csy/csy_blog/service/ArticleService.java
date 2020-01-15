@@ -40,4 +40,16 @@ public interface ArticleService{
      * @param articleId
      */
     void addArticleReadCount(Long articleId);
+
+    /**
+     * 查询推荐文章集合
+     * @return
+     */
+    List<Article> findTopList();
+
+    /**
+     * 查询顶置文章
+     * @return
+     */
+    Article findTopArticle();
 }

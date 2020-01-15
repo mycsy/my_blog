@@ -174,4 +174,12 @@
   <update id="addArticleReadCount" parameterType="java.lang.Long">
     UPDATE article SET article_views = article_views + 1 WHERE id = #{articleId}
   </update>
+
+  <select id="findTopList" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/> FROM article WHERE top = 1
+  </select>
+
+  <select id="findTopArticle" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/> FROM article WHERE top = 0 LIMIT 1
+  </select>
 </mapper>
