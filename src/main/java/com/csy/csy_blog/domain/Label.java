@@ -9,4 +9,6 @@ public class Label {
     private String labelName;
 
     private String labelDescription;
+
+    private int articleCount;//包含的文章数
 }
