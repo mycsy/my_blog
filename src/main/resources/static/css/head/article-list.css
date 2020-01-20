@@ -5,7 +5,6 @@ a:hover { color: #218af1; text-decoration: none;cursor:url(../../img/pointer.cur
 .blog-title-box {
     height: 160px;
     background: #ffffff;
-    margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
 
