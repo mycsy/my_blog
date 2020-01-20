@@ -1,0 +1,57 @@
+body {font: 15px "Microsoft YaHei", Arial, Helvetica, sans-serif; color: #000; background: #f1f1f1; font-size: 15px;cursor:url(../../img/default.cur),default;}
+a { text-decoration: none; color: #000; }
+a:hover { color: #218af1; text-decoration: none;cursor:url(../../img/pointer.cur),pointer;}
+.message-list-box {
+    width: 100%;
+    background: #ffffff;
+}
+@-webkit-keyframes hue {
+    0%{
+        color: #f35626;
+    }
+    50% {
+        color: #feab3a;
+    }
+    100%{
+        color: #f35626;
+    }
+}
+.page-header {
+    color: #f35626;
+    -webkit-animation: hue 6s infinite linear;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 30px;
+}
+.header-title {
+    position: relative;
+    top: -10px;
+    height: 30px;
+}
+.send-message {
+    margin-bottom: 20px;
+}
+.message-box {
+    padding: 5px;
+    height: 100px;
+    border: #dddfff solid 1px;
+    margin-bottom: 20px;
+}
+.user-name {
+    color: #777777;
+}
+.glyphicon-user {
+    color: #555555;
+}
+.message-content {
+    margin-top: 5px;
+    padding: 2px;
+    font-size: 14px;
+    color: #777777;
+}
+
+.message-list .message-box:nth-child(4n-3){background:#dff0d8}
+.message-list .message-box:nth-child(4n-2){background:#d9edf7}
+.message-list .message-box:nth-child(4n-1){background:#f2dede}
+.message-list .message-box:nth-child(4n){background:#fcf8e3}
