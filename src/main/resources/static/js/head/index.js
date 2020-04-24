@@ -5,7 +5,8 @@ $(function () {
             articleList: [],
             labelList: [],
             topArticle: {},
-            topList: []
+            topList: [],
+            articleByDateVoList: []
         },
         methods: {
             go: function (article_id) {
@@ -29,10 +30,11 @@ $(function () {
     jQuery.get(config.url + "/front/index/get",function (res) {
         $.cookie("top_list", JSON.stringify(res.data.topList));
         $.cookie("label_list", JSON.stringify(res.data.labelList));
+        $.cookie("date_list", JSON.stringify(res.data.articleByDateVoList));
         index.articleList = res.data.articleList;
         index.labelList = res.data.labelList;
         index.topList = res.data.topList;
         index.topArticle = res.data.topArticle;
-        console.log(JSON.stringify(res.data));
+        index.articleByDateVoList = res.data.articleByDateVoList;
     });
 });

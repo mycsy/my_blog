@@ -11,9 +11,16 @@
     <result column="article_comment_count" property="articleCommentCount" jdbcType="INTEGER" />
     <result column="article_image_url" property="articleImageUrl" jdbcType="VARCHAR" />
   </resultMap>
+
   <resultMap id="ResultMapWithBLOBs" type="com.csy.csy_blog.domain.Article" extends="BaseResultMap" >
     <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
   </resultMap>
+
+  <resultMap id="ArticleByDateMap" type="com.csy.csy_blog.vomain.ArticleByDateVo">
+    <result column="year_month" property="yearMonth"/>
+    <result column="article_count" property="articleCount"/>
+  </resultMap>
+  
   <sql id="Base_Column_List" >
     id, article_title, article_introduction, article_date, article_views, article_like_count, 
     article_comment_count, article_image_url
@@ -181,5 +188,14 @@
 
   <select id="findTopArticle" resultMap="BaseResultMap">
     SELECT <include refid="Base_Column_List"/> FROM article WHERE top = 0 LIMIT 1
+  </select>
+  
+  <select id="findArticleByDateList" resultMap="ArticleByDateMap">
+    SELECT
+    DATE_FORMAT(article_date,'%Y-%m月') `year_month`, COUNT(1) article_count
+    FROM
+        article
+    GROUP BY DATE_FORMAT(article_date,'%Y-%m')
+    ORDER BY article_date DESC
   </select>
 </mapper>

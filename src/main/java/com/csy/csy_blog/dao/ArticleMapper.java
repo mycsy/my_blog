@@ -1,6 +1,7 @@
 package com.csy.csy_blog.dao;
 
 import com.csy.csy_blog.domain.Article;
+import com.csy.csy_blog.vomain.ArticleByDateVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -33,4 +34,6 @@ public interface ArticleMapper {
     List<Article> findTopList();
 
     Article findTopArticle();
+
+    List<ArticleByDateVo> findArticleByDateList();
 }

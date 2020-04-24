@@ -8,6 +8,7 @@ import com.csy.csy_blog.pojo.Result;
 import com.csy.csy_blog.service.ArticleService;
 import com.csy.csy_blog.service.LabelService;
 import com.csy.csy_blog.utils.ResultHelper;
+import com.csy.csy_blog.vomain.ArticleByDateVo;
 import com.csy.csy_blog.vomain.ArticleVo;
 import com.csy.csy_blog.vomain.IndexVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +38,20 @@ public class FrontIndexController {
             IndexVo indexVo = new IndexVo();
             //获取顶置文章
             Article topArticle = articleService.findTopArticle();
-            indexVo.setTopArticle(topArticle);
             //推荐文章集合
             List<Article> topList = articleService.findTopList();
-            indexVo.setTopList(topList);
             //获取热门文章集合
             List<ArticleVo> articleList = articleService.findHotList(5);
             //获取所有标签
             List<Label> labelList = labelService.findAllLabel();
+            //查询时间归档数
+            List<ArticleByDateVo> articleByDateVos = articleService.findArticleByDateList();
+            //组装数据
+            indexVo.setTopList(topList);
+            indexVo.setTopArticle(topArticle);
             indexVo.setLabelList(labelList);
             indexVo.setArticleList(articleList);
+            indexVo.setArticleByDateVoList(articleByDateVos);
             result.addModel("data", indexVo);
         } catch (Exception e) {
             e.printStackTrace();

@@ -12,4 +12,5 @@ public class IndexVo {
     private List<Label> labelList;//标签集合
     private List<Article> topList;//推荐文章
     private Article topArticle;//顶置文章
+    private List<ArticleByDateVo> articleByDateVoList;//文章时间归档
 }

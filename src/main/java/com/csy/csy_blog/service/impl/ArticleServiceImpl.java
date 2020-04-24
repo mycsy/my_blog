@@ -11,6 +11,7 @@ import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.service.ArticleService;
 import com.csy.csy_blog.service.LabelService;
 import com.csy.csy_blog.utils.SnowflakeIdWorker;
+import com.csy.csy_blog.vomain.ArticleByDateVo;
 import com.csy.csy_blog.vomain.ArticleVo;
 import com.csy.csy_blog.vomain.LabelVo;
 import org.hibernate.exception.DataException;
@@ -135,5 +136,10 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public Article findTopArticle() {
         return articleMapper.findTopArticle();
+    }
+
+    @Override
+    public List<ArticleByDateVo> findArticleByDateList() {
+        return articleMapper.findArticleByDateList();
     }
 }

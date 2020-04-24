@@ -26,7 +26,7 @@ $(function () {
         el: '#right-box',
         data: {
             labelList: JSON.parse($.cookie("label_list")),
-            topArticle: {},
+            articleByDateVoList: JSON.parse($.cookie("date_list")),
             topList: JSON.parse($.cookie("top_list"))
         },
         methods: {

@@ -3,6 +3,7 @@ package com.csy.csy_blog.service;
 import com.csy.csy_blog.domain.Article;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
+import com.csy.csy_blog.vomain.ArticleByDateVo;
 import com.csy.csy_blog.vomain.ArticleVo;
 
 import java.util.List;
@@ -52,4 +53,9 @@ public interface ArticleService{
      * @return
      */
     Article findTopArticle();
+
+    /**
+     * 按时间归档文章
+     */
+    List<ArticleByDateVo> findArticleByDateList();
 }

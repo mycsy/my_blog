@@ -226,10 +226,7 @@
             <aside class="widget">
               <div class="widget-title">归档</div>
               <ul>
-                <li><a href="#">2019 三月</a> (40)</li>
-                <li><a href="#">2019 四月</a> (08)</li>
-                <li><a href="#">2019 五月</a> (11)</li>
-                <li><a href="#">2019 六月</a> (21)</li>
+                  <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}</a> ({{articleByDate.articleCount}})</li>
               </ul>
             </aside>
 
