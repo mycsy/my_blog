@@ -26,3 +26,10 @@
 .label-list a:first-child{background:#036564}
 .label-list a:last-child{background:#3299BB}
 .label-list a:hover{background: #1487f4; color: #fff;border-radius:0;text-shadow:#000 1px 1px 1px}
+
+.article-list article:nth-child(5n-4){background-image: url("../images/1.png")}
+.article-list article:nth-child(5n-3){background-image: url("../images/2.png")}
+.article-list article:nth-child(5n-2){background-image: url("../images/3.png")}
+.article-list article:nth-child(5n-1){background-image: url("../images/4.png")}
+.article-list article:nth-child(5n){background-image: url("../images/5.png")}
+.article-list article:hover{background:#ffffff}
