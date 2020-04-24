@@ -62,27 +62,20 @@
   </div>
 </header>
 <div class="lyear-wrapper">
-    <h5 class="page-name">♚&nbsp;博客首页</h5>
+    <h5 class="page-name">♚&nbsp;实用工具</h5>
   <section class="mt-5 pb-5">
     <div class="container">
       <div class="row">
         <!-- 文章列表 -->
-        <div class="col-xl-8 article-list">
+        <div class="col-xl-8">
 
           <article class="lyear-arc" v-for="article in articleList">
             <div class="arc-header">
-              <h2 class="arc-title"><a  @click="go(article.id)">『{{article.articleTitle}}』</a></h2>
-              <ul class="arc-meta">
-                <li><i class="mdi mdi-calendar"></i> {{article.articleDate | formatDate}}</li>
-                <!--<li><i class="mdi mdi-thumb-up-outline"></i> <a href="#">{{article.articleLikeCount}} 点赞</a></li>-->
-                <li><i class="mdi mdi-file-eye-outline"></i> <a href="#">{{article.articleViews}} 阅读</a></li>
-                <!--<li><i class="mdi mdi-comment-multiple-outline"></i> <a href="#">3 评论</a></li>-->
-                <li><i class="mdi mdi-tag-text-outline"></i> <a href="#" >{{article.labelList | labHandle}}&nbsp;</a></li>
-              </ul>
+                <h2 class="arc-title"><a href="#">PDF删除页码</a></h2>
             </div>
             <!--文章简介-->
             <div class="arc-synopsis">
-              <p>{{article.articleIntroduction}}</p>
+                <p>点击上传文件并输入需要删除的页码</p>
             </div>
           </article>
           <!-- 分页 -->
@@ -148,6 +141,6 @@
 <script type="text/javascript" src="../../bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/head/main.min.js"></script>
 <script type="text/javascript" src="../../js/config.js"></script>
-<script type="text/javascript" src="../../js/head/index.js"></script>
+<script type="text/javascript" src="../../js/head/utils-list.js"></script>
 </body>
 </html>
