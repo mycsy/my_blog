@@ -1,0 +1,28 @@
+.label-list {background: #ffffff}
+.label-box {
+    font-size: 8px;
+    line-height: 16px;
+    display: block;
+    background: #f1f1f1;
+    float: left;
+    padding: 3px 5px;
+    margin: 10px 10px 0 0;
+    border-radius: 3px;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    color: #fff;
+    text-align: center;
+}
+.label-list a:nth-child(8n-7){background:#8A9B0F}
+.label-list a:nth-child(8n-6){background:#EB6841}
+.label-list a:nth-child(8n-5){background:#3FB8AF}
+.label-list a:nth-child(8n-4){background:#FE4365}
+.label-list a:nth-child(8n-3){background:#FC9D9A}
+.label-list a:nth-child(8n-2){background:#EDC951}
+.label-list a:nth-child(8n-1){background:#C8C8A9}
+.label-list a:nth-child(8n){background:#83AF9B}
+.label-list a:first-child{background:#036564}
+.label-list a:last-child{background:#3299BB}
+.label-list a:hover{background: #1487f4; color: #fff;border-radius:0;text-shadow:#000 1px 1px 1px}

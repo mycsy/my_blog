@@ -1,19 +1,6 @@
-toastr.options = {
-    closeButton: false,
-    debug: false,
-    progressBar: false,
-    positionClass: "toast-top-full-width",
-    onclick: null,
-    showDuration: "300",
-    hideDuration: "1000",
-    timeOut: "3000",
-    extendedTimeOut: "1000",
-    showEasing: "swing",
-    hideEasing: "linear",
-    showMethod: "fadeIn",
-    hideMethod: "fadeOut"
-};
-
+var config = {
+    url: "http://localhost:8080"
+}
 function formDataToJson($form) {
     var unindexed_array = $form.serializeArray();
     var indexed_array = {};
@@ -40,5 +27,5 @@ function timeStamp2String(time){
     var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
     var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
     var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
+    return year + "-" + month + "-" + date+" ";
 }
