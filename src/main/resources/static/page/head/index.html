@@ -62,14 +62,14 @@
   </div>
 </header>
 <div class="lyear-wrapper">
+    <h5 class="page-name">♚&nbsp;博客首页</h5>
   <section class="mt-5 pb-5">
     <div class="container">
-
       <div class="row">
         <!-- 文章列表 -->
         <div class="col-xl-8 article-list">
 
-          <article class="lyear-arc" v-for="article in articleList" style="border-right: #c8cbcf 1px solid; ">
+          <article class="lyear-arc" v-for="article in articleList">
             <div class="arc-header">
               <h2 class="arc-title"><a  @click="go(article.id)">『{{article.articleTitle}}』</a></h2>
               <ul class="arc-meta">
@@ -111,7 +111,7 @@
               <div class="widget-title">热门文章</div>
               <ul>
                 <li v-for="art in topList">
-                  <a href="#">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
+                  <a href="#" @click="go(art.id)">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
                 </li>
               </ul>
             </aside>
