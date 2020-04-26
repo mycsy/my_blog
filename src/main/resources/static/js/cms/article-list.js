@@ -1,5 +1,5 @@
 $('#article_table').bootstrapTable({
-    url: '/cms/article/page',
+    url: config.url + '/cms/article/page',
     method: 'POST',
     contentType:"application/json",
     pagination: true, // 是否分页
@@ -51,9 +51,9 @@ $('#article_table').bootstrapTable({
 function actionFormatter(value, row, index) {
     var id = value;
     var result = "";
-    result += "<a href='javascript:;' class='btn btn-xs green' οnclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs blue' οnclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs red' οnclick=\"DeleteByIds('" + id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs green' onclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs red' onclick=\"DeleteByIds('" + id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
     return result;
 }
 

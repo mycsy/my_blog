@@ -5,7 +5,7 @@ $(function(){
             label_list:[]
         }
     });
-   jQuery.get('/cms/label/find/all',null,function (res) {
+   jQuery.get(config.url + '/cms/label/find/all',null,function (res) {
         labels.label_list = res.data;
    });
 
@@ -41,7 +41,7 @@ $('#save').click(function () {
         articleContent:article_content,
         labelList:arr
     }
-    jQuery.axspost('/cms/article/create',JSON.stringify(article), function (res) {
+    jQuery.axspost(config.url + '/cms/article/create',JSON.stringify(article), function (res) {
         if (res.success) {
             toastr.success("文章添加成功");
             setTimeout(function() {

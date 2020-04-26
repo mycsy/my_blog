@@ -1,5 +1,5 @@
 $('#label_table').bootstrapTable({
-    url: '/cms/label/page',
+    url: config.url + '/cms/label/page',
     method: 'POST',
     contentType:"application/json",
     pagination: true, // 是否分页
@@ -35,9 +35,9 @@ $('#label_table').bootstrapTable({
 function actionFormatter(value, row, index) {
     var id = value;
     var result = "";
-    result += "<a href='javascript:;' class='btn btn-xs green' οnclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs blue' οnclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs red' οnclick=\"DeleteByIds('" + id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs green' onclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs red' onclick=\"DeleteByIds('" + id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
     return result;
 }
 
@@ -53,7 +53,7 @@ function queryParams(params) {
  * 提交添加
  */
 $('#save').click(function () {
-    jQuery.axspost('/cms/label/create',formDataToJson($('#formData')),function (res) {
+    jQuery.axspost(config.url + '/cms/label/create',formDataToJson($('#formData')),function (res) {
         if (res.success) {
             $('#addNew').modal('hide');
             toastr.success("标签添加成功");
