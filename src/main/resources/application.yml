@@ -11,7 +11,11 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-
+#    url: jdbc:mysql://180.76.242.43:3306/my-blog?serverTimezone=GMT
+#    username: root
+#    password: caigege666
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
 mybatis:
   typeAliasesPackage: com.csy.csy_blog.dao
   mapperLocations: classpath:mapper/*.xml

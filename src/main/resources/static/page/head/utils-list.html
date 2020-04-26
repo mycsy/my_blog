@@ -92,36 +92,35 @@
         <!-- 内容 end -->
 
         <!-- 侧边栏 -->
-        <div class="col-xl-4">
+        <div class="col-xl-4" id="right-box">
           <div class="lyear-sidebar">
-            <!-- 热门文章 -->
-            <aside class="widget widget-hot-posts">
-              <div class="widget-title">热门文章</div>
-              <ul>
-                <li v-for="art in topList">
-                  <a href="#" @click="go(art.id)">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
-                </li>
-              </ul>
-            </aside>
+              <!-- 热门文章 -->
+              <aside class="widget widget-hot-posts">
+                  <div class="widget-title">热门文章</div>
+                  <ul>
+                      <li v-for="art in topList">
+                          <a href="#">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
+                      </li>
+                  </ul>
+              </aside>
 
-            <!-- 归档 -->
-            <aside class="widget">
-              <div class="widget-title">归档</div>
-              <ul>
-                <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}</a> ({{articleByDate.articleCount}})</li>
-              </ul>
-            </aside>
+              <!-- 归档 -->
+              <aside class="widget">
+                  <div class="widget-title">归档</div>
+                  <ul>
+                      <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}</a> ({{articleByDate.articleCount}})</li>
+                  </ul>
+              </aside>
 
-            <!-- 标签 -->
-            <aside class="widget widget-tag-cloud">
-              <div class="widget-title">标签</div>
-              <div class="label-list">
-                <a v-for="label in labelList" href="#" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
-              </div>
-
-            </aside>
+              <!-- 标签 -->
+              <aside class="widget widget-tag-cloud">
+                  <div class="widget-title">标签</div>
+                  <div class="label-list">
+                      <a v-for="label in labelList" href="#" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
+                  </div>
+              </aside>
           </div>
-        </div>
+      </div>
         <!-- 侧边栏 end -->
       </div>
 
