@@ -1,59 +1,47 @@
 package com.csy.csy_blog.controller.front;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfCopy;
-import com.itextpdf.text.pdf.PdfImportedPage;
+import com.alibaba.fastjson.JSONObject;
+import com.csy.csy_blog.domain.Label;
+import com.csy.csy_blog.pojo.Result;
+import com.csy.csy_blog.utils.PdfUtils;
+import com.csy.csy_blog.utils.ResultHelper;
 import com.itextpdf.text.pdf.PdfReader;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
+@RestController
 @RequestMapping("/front/pdf")
 public class FrontPdfUtilsController {
-
     /**
-     * 截取pdfFile的第from页至第end页，组成一个新的文件名
-     * @param respdfFile  需要分割的PDF
-     * @param savepath  新PDF
-     * @param from  起始页
-     * @param end  结束页
+     * 获取所有标签
      */
-    public static void splitPDFFile(String respdfFile,
-                                    String savepath, int from, int end) {
-        Document document = null;
-        PdfCopy copy = null;
+    @RequestMapping("/delete/one")
+    public void deleteOne(@RequestParam("file") MultipartFile file, HttpServletResponse response, int pageNum) {
+        Result result = new Result();
+        result.setSuccess(true);
         try {
-            PdfReader reader = new PdfReader(respdfFile);
-            int n = reader.getNumberOfPages();
-            if(end==0){
-                end = n;
-            }
-            ArrayList<String> savepaths = new ArrayList<String>();
-            String staticpath = respdfFile.substring(0, respdfFile.lastIndexOf("\\")+1);
-            //String savepath = staticpath+ newFile;
-            savepaths.add(savepath);
-            document = new Document(reader.getPageSize(1));
-            copy = new PdfCopy(document, new FileOutputStream(savepaths.get(0)));
-            document.open();
-            for(int j=from; j<=end; j++) {
-                document.newPage();
-                PdfImportedPage page = copy.getImportedPage(reader, j);
-                copy.addPage(page);
-            }
-            document.close();
+            /*
+            PdfReader pdfReader = new PdfReader(inputStream);
+            PDDocument document = new PDDocument();
+            document = PDDocument.load(inputStream);
+            document.save(response.getOutputStream());*/
+            InputStream inputStream = file.getInputStream();
+            PdfUtils.cutPdf(inputStream, pageNum, response);
+        } catch (Exception e) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch(DocumentException e) {
-            e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        splitPDFFile(String respdfFile,
-                String savepath, int from, int end)
     }
 }
