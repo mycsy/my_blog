@@ -1,4 +1,6 @@
 #开发配置
+server:
+  port: 8888
 spring:
   servlet:
       multipart:
@@ -6,16 +8,16 @@ spring:
         max-file-size: 100MB
         max-request-size: 100MB
   datasource:
-    url: jdbc:mysql://localhost:3306/my_blog?serverTimezone=GMT
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:mysql://180.76.242.43:3306/my-blog?serverTimezone=GMT
+#    url: jdbc:mysql://localhost:3306/my_blog?serverTimezone=GMT
 #    username: root
-#    password: caigege666
+#    password: root
 #    driver-class-name: com.mysql.jdbc.Driver
 #    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://180.76.242.43:3306/my-blog?serverTimezone=GMT
+    username: root
+    password: caigege666
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
 mybatis:
   typeAliasesPackage: com.csy.csy_blog.dao
   mapperLocations: classpath:mapper/*.xml

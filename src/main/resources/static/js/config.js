@@ -1,5 +1,5 @@
 var config = {
-    url: "http://localhost:8080"
+    url: "http://localhost:8888"
 }
 function formDataToJson($form) {
     var unindexed_array = $form.serializeArray();

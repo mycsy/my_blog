@@ -1,0 +1,153 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>『侧耳听风』的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="yinqi" />
+<!--
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+-->
+<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.min.css" />
+<link rel="stylesheet" type="text/css" href="css/head/index.css" />
+<link rel="stylesheet" type="text/css" href="css/label-list.css" />
+</head>
+<body id="index">
+<header class="lyear-header text-center" style="background-image:url(images/left-bg.jpg);">
+  <div class="lyear-header-container">
+    <div class="lyear-mask"></div>
+    <h1 class="lyear-blogger pt-lg-4 mb-0"><a href="index.html">『侧耳听风』的博客</a></h1>
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-toggler" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="lyear-hamburger">
+        <div class="hamburger-inner"></div>
+      </div>
+    </a>
+    
+    <div id="navigation" class="collapse navbar-collapse flex-column">
+	  <div class="profile-section pt-3 pt-lg-0">
+	    <img class="profile-image mb-3 rounded-circle mx-auto" src="images/logo.png" width="120" height="120" alt="侧耳听风" >
+	    <div class="lyear-sentence mb-3">壹枚终身奋斗于技术研究的程序猿。</div>
+        <hr>
+	  </div>
+	  
+	  <ul class="navbar-nav flex-column text-center">
+	    <li class="nav-item active">
+          <a class="nav-link" href="index.html">首页</a>
+	    </li>
+        <li class="nav-item">
+          <a class="nav-link" href="page/head/about.html">关于我</a>
+        </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="index.html">文章列表</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="page/head/utils-list.html">实用工具</a>
+	    </li>
+	  </ul>
+	  
+	  <div class="my-2 my-md-3">
+        <form class="lyear-search-form form-inline justify-content-center pt-3">
+          <input type="email" id="semail" name="semail1" class="form-control mr-md-1" placeholder="搜索关键词" />
+        </form>
+	  </div>
+	</div>
+  </nav>
+  </div>
+</header>
+<div class="lyear-wrapper">
+    <h5 class="page-name">♚&nbsp;博客首页</h5>
+  <section class="mt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <!-- 文章列表 -->
+        <div class="col-xl-8 article-list">
+
+          <article class="lyear-arc" v-for="article in articleList">
+            <div class="arc-header">
+              <h2 class="arc-title"><a  @click="go(article.id)">『{{article.articleTitle}}』</a></h2>
+              <ul class="arc-meta">
+                <li><i class="mdi mdi-calendar"></i> {{article.articleDate | formatDate}}</li>
+                <!--<li><i class="mdi mdi-thumb-up-outline"></i> <a href="#">{{article.articleLikeCount}} 点赞</a></li>-->
+                <li><i class="mdi mdi-file-eye-outline"></i> <a href="#">{{article.articleViews}} 阅读</a></li>
+                <!--<li><i class="mdi mdi-comment-multiple-outline"></i> <a href="#">3 评论</a></li>-->
+                <li><i class="mdi mdi-tag-text-outline"></i> <a href="#" >{{article.labelList | labHandle}}&nbsp;</a></li>
+              </ul>
+            </div>
+            <!--文章简介-->
+            <div class="arc-synopsis">
+              <p>{{article.articleIntroduction}}</p>
+            </div>
+          </article>
+          <!-- 分页 -->
+          <!--<div class="row">
+            <div class="col-lg-12">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-left"></i></a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>-->
+          <!-- 分页 end -->
+        </div>
+        <!-- 内容 end -->
+
+        <!-- 侧边栏 -->
+        <div class="col-xl-4">
+          <div class="lyear-sidebar">
+            <!-- 热门文章 -->
+            <aside class="widget widget-hot-posts">
+              <div class="widget-title">热门文章</div>
+              <ul>
+                <li v-for="art in topList">
+                  <a href="#" @click="go(art.id)">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
+                </li>
+              </ul>
+            </aside>
+
+            <!-- 归档 -->
+            <aside class="widget">
+              <div class="widget-title">归档</div>
+              <ul>
+                <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}</a> ({{articleByDate.articleCount}})</li>
+              </ul>
+            </aside>
+
+            <!-- 标签 -->
+            <aside class="widget widget-tag-cloud">
+              <div class="widget-title">标签</div>
+              <div class="label-list">
+                <a v-for="label in labelList" href="#" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
+              </div>
+
+            </aside>
+          </div>
+        </div>
+        <!-- 侧边栏 end -->
+      </div>
+
+    </div>
+    <!-- end container -->
+  </section>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/vue/vue.min.js"></script>
+<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/head/main.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/head/index.js"></script>
+</body>
+</html>
