@@ -10,7 +10,7 @@ $(function () {
         },
         methods: {
             go: function (article_id) {
-                window.location.href="article-detail.html?article_id="+article_id;
+                window.location.href="/page/head/article-detail.html?article_id="+article_id;
             }
         },
         filters: {

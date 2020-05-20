@@ -162,28 +162,7 @@
                   <h5><span>说点什么吧...</span> <small class="cancel-comment-reply" onclick="cancelReply()">(取消回复)</small></h5>
                 </div>
                 
-                <form action="#" method="post" class="mt-4 lyear-comment-form">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <input id="author" class="form-control" placeholder="昵称*" name="author" type="text" required="" />
-                    </div>
-                  </div>
-
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <input id="email" class="form-control" placeholder="邮箱*" name="email" type="text" required="" />
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <input id="subject" class="form-control" placeholder="网址" name="subject" type="text" />
-                    </div>
-                  </div>
-                </div>
-
+                <form class="mt-4 lyear-comment-form">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
@@ -195,7 +174,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <button name="submit" type="submit" id="submit" class="btn btn-primary">发表评论</button>
+                      <button id="submit" onclick="submitComment()" class="btn btn-primary">发表评论</button>
                       <input type='hidden' name='comment_arc_id' value='1' id='comment_arc_id' />
                       <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                     </div>

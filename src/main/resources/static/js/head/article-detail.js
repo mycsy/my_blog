@@ -49,3 +49,7 @@ $(function () {
         }
     });
 });
+function submitComment() {
+    alert(12313);
+    return false;
+}
