@@ -48,8 +48,47 @@ $(function () {
             }
         }
     });
+
+    /**
+     * 用户注册
+     */
+    $('#register_').on('click', function () {
+        $.axpost(config.url + '/front/user/register', $("#registerForm").serialize(), function (res) {
+            $('#register').modal('hide');
+            if (res.msg === 'success') {
+                $.cookie("nick_name", res.user_info.nickName);
+                $.cookie("user_id", res.user_info.id);
+                toastr.success("已注册并登录");
+            }
+        })
+    });
+
+    //用户登录
+    $('#login_').on('click', function () {
+        $.axpost(config.url + '/front/user/login', $("#loginForm").serialize(), function (res) {
+            if (res.msg === 'success') {
+                $('#login').modal('hide');
+                $.cookie("nick_name", res.user_info.nickName);
+                $.cookie("user_id", res.user_info.id);
+                toastr.success("登录成功");
+            }
+        })
+    });
 });
+
 function submitComment() {
-    alert(12313);
-    return false;
+    //如果用户为登录弹出登录框
+    if ($.cookie("user_id") == null) {
+        $('#login').modal("show");
+    }
+}
+
+function go(name) {
+    if (name === 'login') {
+        $('#register').modal('hide');
+        $('#login').modal("show");
+    } else {
+        $('#login').modal('hide');
+        $('#register').modal("show");
+    }
 }

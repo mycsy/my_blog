@@ -4,12 +4,12 @@
   <resultMap id="BaseResultMap" type="com.csy.csy_blog.domain.UserInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="passward" property="passward" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, user_name, passward, nick_name, create_time
+    id, user_name, password, nick_name, create_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -22,9 +22,9 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.csy.csy_blog.domain.UserInfo" >
-    insert into user_info (id, user_name, passward, 
+    insert into user_info (id, user_name, password, 
       nick_name, create_time)
-    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{passward,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{nickName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.csy.csy_blog.domain.UserInfo" >
@@ -36,8 +36,8 @@
       <if test="userName != null" >
         user_name,
       </if>
-      <if test="passward != null" >
-        passward,
+      <if test="password != null" >
+        password,
       </if>
       <if test="nickName != null" >
         nick_name,
@@ -53,8 +53,8 @@
       <if test="userName != null" >
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="passward != null" >
-        #{passward,jdbcType=VARCHAR},
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
       </if>
       <if test="nickName != null" >
         #{nickName,jdbcType=VARCHAR},
@@ -70,8 +70,8 @@
       <if test="userName != null" >
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="passward != null" >
-        passward = #{passward,jdbcType=VARCHAR},
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="nickName != null" >
         nick_name = #{nickName,jdbcType=VARCHAR},
@@ -85,9 +85,13 @@
   <update id="updateByPrimaryKey" parameterType="com.csy.csy_blog.domain.UserInfo" >
     update user_info
     set user_name = #{userName,jdbcType=VARCHAR},
-      passward = #{passward,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
       nick_name = #{nickName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="login" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" /> FROM user_info WHERE user_name =#{username} and password = #{password}
+  </select>
 </mapper>

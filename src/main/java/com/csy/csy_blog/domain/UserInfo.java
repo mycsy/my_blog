@@ -10,7 +10,7 @@ public class UserInfo {
 
     private String userName;
 
-    private String passward;
+    private String password;
 
     private String nickName;
 

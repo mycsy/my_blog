@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="../../css/materialdesignicons.min.css" />
 <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
 <link rel="stylesheet" type="text/css" href="../../js/highlight/styles/agate.css" />
-<link rel="stylesheet" type="text/css" href="../../css/label-list.css" />
+<link rel="stylesheet" href="../../bootstrap/toastr.min.css">
 <link rel="stylesheet" type="text/css" href="../../css/label-list.css" />
 </head>
 <body>
@@ -174,7 +174,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <button id="submit" onclick="submitComment()" class="btn btn-primary">发表评论</button>
+                      <a id="submit" onclick="submitComment()" class="btn btn-primary"><span style="color: #fff">发表评论</span></a>
                       <input type='hidden' name='comment_arc_id' value='1' id='comment_arc_id' />
                       <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                     </div>
@@ -214,7 +214,7 @@
             <aside class="widget widget-tag-cloud">
               <div class="widget-title">标签</div>
               <div class="label-list">
-                  <a v-for="label in labelList" href="#" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
+                  <a v-for="label in labelList" href="#" data-toggle="modal" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
               </div>
             </aside>
           </div>
@@ -226,9 +226,73 @@
     <!-- end container -->
   </section>
 </div>
+<!--用户登录-->
+<div class="modal fade" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">用户登录<a style="color: #0080FF" onclick="go('register')">前往注册⇒</a></div>
+            <form class="form-horizontal" id="loginForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-12">
+                            <input name="username" type="text" class="form-control list-inline" placeholder="请输入Email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-12">
+                            <input name="password" type="text" class="form-control list-inline" placeholder="请输入密码"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-success" id="login_" type="submit">登录</button>
+                <button class="btn btn-danger" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--用戶注冊-->
+<div class="modal fade" id="register">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">用户注册<a style="color: #0080FF" onclick="go('login')">前往登录⇒</a></div>
+            <form class="form-horizontal" id="registerForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-12">
+                            <input name="userName" type="text" class="form-control list-inline" placeholder="请输入Email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-12">
+                            <input name="passward" type="text" class="form-control list-inline" placeholder="请输入密码"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">昵称</label>
+                        <div class="col-sm-12">
+                            <input name="nickName" type="text" class="form-control list-inline" placeholder="请输入昵称"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-success" id="register_" type="submit">注册</button>
+                <button class="btn btn-danger" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript" src="../../js/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
 <script type="text/javascript" src="../../js/vue/vue.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+<script src="../../bootstrap/toastr.min.js"></script>
 <script type="text/javascript" src="../../js/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="../../bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/highlight/highlight.pack.js"></script>

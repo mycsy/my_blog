@@ -1,6 +1,7 @@
 package com.csy.csy_blog.dao;
 
 import com.csy.csy_blog.domain.UserInfo;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserInfoMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +15,6 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+    UserInfo login(@Param("username") String username,@Param("password") String password);
 }
