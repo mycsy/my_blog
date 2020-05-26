@@ -18,7 +18,7 @@ function queryString(name){
     return null;
 }
 
-function timeStamp2String(time){
+function timeStamp2String(time, format){
     var datetime = new Date();
     datetime.setTime(time);
     var year = datetime.getFullYear();
@@ -27,5 +27,9 @@ function timeStamp2String(time){
     var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
     var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
     var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-    return year + "-" + month + "-" + date+" ";
+    if (format === 'yyyy-MM-dd') {
+        return year + "-" + month + "-" + date+" ";
+    } else {
+        return year + "-" + month + "-" + date + " " + hour + '-' + minute + '-' + second;
+    }
 }

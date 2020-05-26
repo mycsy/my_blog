@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csy.csy_blog.dao.ArticleCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.csy.csy_blog.domain.ArticleComment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="article_id" property="articleId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="commentVoMap" type="com.csy.csy_blog.vomain.CommentVo">
+    <result column="id" property="id"/>
+    <result column="" property=""/>
+    <result column="comment" property="comment"/>
+    <result column="user_id" property="userId"/>
+    <result column="nick_name" property="nickName"/>
+    <result column="article_id" property="articleId"/>
+    <result column="comment_time" property="commentTime"/>
+    <collection property="replyList" ofType="com.csy.csy_blog.domain.CommentReply">
+      <result column="content" property="content"/>
+      <result column="from_name" property="fromName"/>
+      <result column="to_name" property="toName"/>
+      <result column="create_time" property="createTime"/>
+      <result column="from_id" property="fromId"/>
+      <result column="to_id" property="toId"/>
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, article_id, user_id, comment, create_time, nick_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from article_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.csy.csy_blog.domain.ArticleComment" >
+    insert into article_comment (id, article_id, user_id, 
+      comment, create_time, nick_name
+      )
+    values (#{id,jdbcType=BIGINT}, #{articleId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{comment,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{nickName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.csy.csy_blog.domain.ArticleComment" >
+    insert into article_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csy.csy_blog.domain.ArticleComment" >
+    update article_comment
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csy.csy_blog.domain.ArticleComment" >
+    update article_comment
+    set article_id = #{articleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      comment = #{comment,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      nick_name = #{nickName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findCommentListByArticleId" resultMap="commentVoMap">
+        SELECT
+        a.id,
+        a.`comment`,
+        a.user_id,
+        a.nick_name,
+        a.article_id,
+        a.create_time comment_time,
+        b.content,
+        b.from_name,
+        b.to_name,
+        b.create_time,
+        b.from_id,
+        b.to_id
+    FROM
+        article_comment a
+    LEFT JOIN comment_reply b ON a.id = b.comment_id
+    WHERE a.article_id = #{articleId}
+    ORDER BY a.create_time, b.create_time
+  </select>
+</mapper>

@@ -90,71 +90,33 @@
               </div>
 
               <div class="mt-5 lyear-comment-title">
-                <h5><span>评论 (5)</span></h5>
+                <h5><span id="commentCount">评论 (0)</span></h5>
               </div>
 
               <ul class="media-list list-unstyled lyear-comment">
-
-                <li id="comment-1">
-				  <div class="media">
-                    <img class="d-flex mr-3 rounded-circle" src="../../images/author.jpg" alt="花满楼">
-                    <div class="media-body">
-                      <a href="#!" class="text-custom reply-btn" data-id="1"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
-                      <h4 class="media-heading"><a href="#!">花满楼</a></h4>
-                      <p class="text-muted post-date">2019-09-25 16:17</p>
-                      <p>只要你肯去领略，就会发现人生本是多么可爱，每个季节里都有很多足以让你忘记所有烦恼的赏心乐趣。</p>
-                    </div>
-				  </div>
-                </li>
-
-                <li id="comment-2">
-				  <div class="media">
-                    <img class="d-flex mr-3 rounded-circle" src="images/author.jpg" alt="陆小凤">
-                    <div class="media-body">
-                      <a href="#!" class="text-custom reply-btn" data-id="2"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
-                      <h4 class="media-heading"><a href="#!">陆小凤</a></h4>
-                      <p class="text-muted post-date">2019-07-06 15:32</p>
-                      <p>有的人求名，有的人求利，我求的是什么呢？</p>
-                    </div>
-				  </div>
-				  <ul class="comment-children">
-				    <li id="comment-3">
+                  <li v-for="comment in comment_list" :id="comment.id">
                       <div class="media">
-                        <img class="d-flex mr-3 rounded-circle" src="images/author.jpg" alt="西门吹雪">
-                        <div class="media-body">
-                          <a href="#!" class="text-custom reply-btn" data-id="3"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
-                          <h4 class="media-heading"><a href="#!">西门吹雪</a></h4>
-                          <p class="text-muted post-date">2019-07-06 15:36</p>
-                          <p>麻烦！</p>
-                        </div>
+                          <img class="d-flex mr-3 rounded-circle" src="../../images/author.jpg" alt="花满楼">
+                          <div class="media-body">
+                              <a href="#!" class="text-custom reply-btn"  @click="goComment(comment)"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
+                              <h4 class="media-heading"><a href="#!">{{comment.nickName}}</a></h4>
+                              <p class="text-muted post-date">{{comment.commentTime | formatDate}}</p>
+                              <p>{{comment.comment}}</p>
+                          </div>
                       </div>
-					</li>
-				  </ul>
-                </li>
-
-                <li id="comment-4">
-				  <div class="media">
-                    <img class="d-flex mr-3 rounded-circle" src="images/author.jpg" alt="楚留香">
-                    <div class="media-body">
-                      <a href="#!" class="text-custom reply-btn" data-id="4"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
-                      <h4 class="media-heading"><a href="#!">楚留香</a></h4>
-                      <p class="text-muted post-date">2019-06-27 10:02</p>
-                      <p>闻君有白玉美人，妙手雕成，极尽妍态, 不胜心向往之。今夜子正,当踏月来取, 君素雅达，必不致令我徒劳往返也。</p>
-                    </div>
-				  </div>
-                </li>
-
-                <li id="comment-5">
-				  <div class="media">
-                    <img class="d-flex mr-3 rounded-circle" src="images/author.jpg" alt="傅红雪">
-                    <div class="media-body">
-                      <a href="#!" class="text-custom reply-btn" data-id='5'><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
-                      <h4 class="media-heading"><a href="#!">傅红雪</a></h4>
-                      <p class="text-muted post-date">2019-06-26 11:45</p>
-                      <p>一把刀，一条没有退路的征途；一个人，一个孤独而又寂寞的灵魂！</p>
-                    </div>
-                  </div>
-                </li>
+                      <ul class="comment-children">
+                          <li v-for="reply in comment.replyList" :id="">
+                              <div class="media">
+                                  <div class="media-body">
+                                      <a href="#!" class="text-custom reply-btn" @click="goReply(comment, reply)"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
+                                      <span style="font-size: 10px">{{reply.fromName}}&nbsp;&nbsp;回复&nbsp;&nbsp;{{reply.toName}}</span>
+                                      <p class="text-muted post-date">{{reply.createTime | formatDate}}</p>
+                                      <p>{{reply.content}}</p>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
               
               <div id="respond" class="comment-respond">
@@ -270,7 +232,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">密码</label>
                         <div class="col-sm-12">
-                            <input name="passward" type="text" class="form-control list-inline" placeholder="请输入密码"/>
+                            <input name="password" type="text" class="form-control list-inline" placeholder="请输入密码"/>
                         </div>
                     </div>
                     <div class="form-group">

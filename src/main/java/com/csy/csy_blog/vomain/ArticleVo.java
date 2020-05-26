@@ -9,4 +9,5 @@ import java.util.List;
 @Data
 public class ArticleVo extends Article{
     private List<LabelVo> labelList;
+    private List<CommentVo> commentList;
 }

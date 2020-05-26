@@ -7,10 +7,12 @@ import com.csy.csy_blog.domain.Article;
 import com.csy.csy_blog.pojo.BaseQuery;
 import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.pojo.Result;
+import com.csy.csy_blog.service.ArticleCommentService;
 import com.csy.csy_blog.service.ArticleService;
 import com.csy.csy_blog.service.LabelService;
 import com.csy.csy_blog.utils.ResultHelper;
 import com.csy.csy_blog.vomain.ArticleVo;
+import com.csy.csy_blog.vomain.CommentVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +29,8 @@ public class FrontArticleController {
     private ArticleService articleService;
     @Autowired
     private LabelService labelService;
+    @Autowired
+    private ArticleCommentService articleCommentService;
 
     /**
      * 查询文章全文
@@ -40,6 +44,8 @@ public class FrontArticleController {
         result.setSuccess(true);
         try {
             ArticleVo articleVo = articleService.findById(article_id);
+            List<CommentVo> commentList = articleCommentService.findCommentListByArticleId(article_id);
+            articleVo.setCommentList(commentList);
             result.addModel("data", articleVo);
         } catch (Exception e) {
 
