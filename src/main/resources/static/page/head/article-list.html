@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>『侧耳听风』的博客</title>
+<title>文章列表</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -17,10 +17,11 @@
 <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
 <link rel="stylesheet" type="text/css" href="../../css/head/index.css" />
 <link rel="stylesheet" type="text/css" href="../../css/label-list.css" />
+<link rel="stylesheet" type="text/css" href="../../css/head/page.css" />
 <link rel="stylesheet" type="text/css" href="../../bootstrap/file/css/fileinput.css" />
 <link rel="stylesheet" type="text/css" href="../../bootstrap/file/css/fileinput-rtl.css" />
 </head>
-<body id="index">
+<body  id="articleList">
 <header class="lyear-header text-center" style="background-image:url(../../images/left-bg.jpg);">
   <div class="lyear-header-container">
     <div class="lyear-mask"></div>
@@ -68,26 +69,33 @@
     <div class="container">
       <div class="row">
         <!-- 文章列表 -->
-        <div class="col-xl-8">
-            <article class="lyear-arc" style="border-bottom: #c8cbcf 1px solid">
-                <h2 class="arc-title"><a  @click="go(article.id)">PDF删除单个页面</a></h2>
-                <div class="panel-body">
-                    <form id="delete_one" enctype="multipart/form-data" method="post">
-                        <div class="form-group">
-                            <label class="control-label">点击下方按钮上传文件：</label>
-                            <input type="file" name="file" id="txt_file" multiple class="file-loading" />
-                        </div>
-                        <div class="form-group">
-                            <label>请输入需要删除的页码：</label>
-                            <div class="form-inline">
-                                <input type="number" class="form-control" style="flex: 1 1 auto;" name="pageNum" placeholder="0:删除第一页；1:删除最后一页；或者输入其他页码">
-                                <button id="delete_on_btn" type="button" class="btn btn-danger">确认删除</button>
-                            </div>
-                        </div>
-                    </form>
+          <div class="col-xl-8 article-list">
+
+              <article class="lyear-arc" v-for="article in articleList">
+                  <div class="arc-header">
+                      <h2 class="arc-title"><a href="#" @click="go(article.id)">{{article.articleTitle}}</a></h2>
+                      <ul class="arc-meta">
+                          <li><i class="mdi mdi-calendar"></i> {{article.articleDate | formatDate}}</li>
+                          <!--<li><i class="mdi mdi-thumb-up-outline"></i> <a href="#">{{article.articleLikeCount}} 点赞</a></li>-->
+                          <li><i class="mdi mdi-file-eye-outline"></i> <a href="#">{{article.articleViews}} 阅读</a></li>
+                          <!--<li><i class="mdi mdi-comment-multiple-outline"></i> <a href="#">3 评论</a></li>-->
+                          <li><i class="mdi mdi-tag-text-outline"></i> <a href="#" >{{article.labelList | labHandle}}&nbsp;</a></li>
+                      </ul>
+                  </div>
+                  <!--文章简介-->
+                  <div class="arc-synopsis">
+                      <p>{{article.articleIntroduction}}</p>
+                  </div>
+              </article>
+              <!-- 分页 -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <ul class="pagination" id="page-box">
+                  </ul>
                 </div>
-            </article>
-        </div>
+              </div>
+              <!-- 分页 end -->
+          </div>
         <!-- 内容 end -->
 
         <!-- 侧边栏 -->
@@ -135,7 +143,9 @@
 <script type="text/javascript" src="../../js/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="../../bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/head/main.min.js"></script>
+<script type="text/javascript" src="../../js/ajax.js"></script>
 <script type="text/javascript" src="../../js/config.js"></script>
-<script type="text/javascript" src="../../js/head/utils-list.js"></script>
+<script type="text/javascript" src="../../js/head/page.js"></script>
+<script type="text/javascript" src="../../js/head/article-list.js"></script>
 </body>
 </html>

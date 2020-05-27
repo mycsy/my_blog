@@ -63,7 +63,6 @@ function queryParams(params) {
         page: this.pageNumber,
         limit: this.pageSize
     }
-    console.log(query);
     return JSON.stringify(query);
 }
 $('#addArticle').click(function () {
