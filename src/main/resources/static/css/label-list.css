@@ -1,4 +1,10 @@
-.page-name {border-bottom: #f1efee 1px solid}
+.page-name {
+background: #ccc url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+text-shadow: 3px -3px #cc99cc, 2px -2px white;
+    font-weight: bold;
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+border-bottom: #f1efee 1px solid}
 .label-list {background: #ffffff}
 .label-box {
     font-size: 8px;
@@ -28,9 +34,10 @@
 .label-list a:last-child{background:#3299BB}
 .label-list a:hover{background: #1487f4; color: #fff;border-radius:0;text-shadow:#000 1px 1px 1px}
 
+/*
 .article-list article:nth-child(5n-4){background-image: url("../images/1.png");border-right: #f0f0f0 1px solid;}
 .article-list article:nth-child(5n-3){background-image: url("../images/2.png");border-right: #f0f0f0 1px solid;}
 .article-list article:nth-child(5n-2){background-image: url("../images/3.png");border-right: #f0f0f0 1px solid;}
 .article-list article:nth-child(5n-1){background-image: url("../images/4.png");border-right: #f0f0f0 1px solid;}
 .article-list article:nth-child(5n){background-image: url("../images/5.png");border-right: #f0f0f0 1px solid;}
-.article-list article:hover{background:#ffffff;border-right: #ffffff 1px solid}
+.article-list article:hover{background:#ffffff;border-right: #ffffff 1px solid}*/

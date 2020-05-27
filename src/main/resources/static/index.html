@@ -62,7 +62,7 @@
   </div>
 </header>
 <div class="lyear-wrapper">
-    <h5 class="page-name">♚&nbsp;博客首页</h5>
+    <h6 class="page-name">首页</h6>
   <section class="mt-5 pb-5">
     <div class="container">
       <div class="row">
@@ -71,7 +71,7 @@
 
           <article class="lyear-arc" v-for="article in articleList">
             <div class="arc-header">
-              <h2 class="arc-title"><a  @click="go(article.id)">『{{article.articleTitle}}』</a></h2>
+              <h2 class="arc-title"><a href="#" @click="go(article.id)">{{article.articleTitle}}</a></h2>
               <ul class="arc-meta">
                 <li><i class="mdi mdi-calendar"></i> {{article.articleDate | formatDate}}</li>
                 <!--<li><i class="mdi mdi-thumb-up-outline"></i> <a href="#">{{article.articleLikeCount}} 点赞</a></li>-->
@@ -120,7 +120,7 @@
             <aside class="widget">
               <div class="widget-title">归档</div>
               <ul>
-                <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}</a> ({{articleByDate.articleCount}})</li>
+                <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}({{articleByDate.articleCount}})</a></li>
               </ul>
             </aside>
 
