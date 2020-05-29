@@ -11,6 +11,9 @@ $(function () {
         methods: {
             go: function (article_id) {
                 window.location.href="/page/head/article-detail.html?article_id="+article_id;
+            },
+            labelToArticle: function (labelId) {
+                window.location.href="/page/head/article-list.html?labelId="+labelId;
             }
         },
         filters: {

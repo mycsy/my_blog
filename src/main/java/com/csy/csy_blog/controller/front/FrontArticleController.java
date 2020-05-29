@@ -69,7 +69,7 @@ public class FrontArticleController {
             result.addModel("count", queryResult.getTotal());
             result.addModel("data", voList);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return ResultHelper.renderAsJsonWipeData(result);
     }

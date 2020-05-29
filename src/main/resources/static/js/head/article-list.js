@@ -1,4 +1,5 @@
 $(function () {
+    var labelId = queryString('labelId');
     var articleList = new Vue({
         el: '#articleList',
         data: {
@@ -29,8 +30,14 @@ $(function () {
     //创建页码
     findPageInfo(1, true);
     function findPageInfo(pageNo, createPage) {
-        jQuery.axspost('/front/article/page',JSON.stringify({page:pageNo,limit:6}),function (res) {
-            console.log(res)
+        var params = {
+            page:pageNo,
+            limit:6,
+            paramMap: {
+                labelId: labelId
+            }
+        }
+        jQuery.axspost('/front/article/page',JSON.stringify(params),function (res) {
             articleList.articleList = res.data;
             //创建分页标签
             if (createPage) {

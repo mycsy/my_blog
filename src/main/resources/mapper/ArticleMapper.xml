@@ -166,11 +166,33 @@
   </update>
 
   <select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
-      SELECT count(1) FROM article
+    SELECT COUNT(1) FROM (
+    SELECT
+    a.id
+    FROM
+    article a
+    LEFT JOIN article_label b ON a.id = b.article_id
+    WHERE 1=1
+    <if test="labelId != null and labelId != ''" >
+      AND b.label_id = #{labelId}
+    </if>
+    GROUP BY
+    a.id
+    ) aa
   </select>
 
   <select id="findPageInfo" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
-    SELECT <include refid="Base_Column_List"/> FROM article
+    SELECT
+    a.*
+    FROM
+    article a
+    LEFT JOIN article_label b ON a.id = b.article_id
+    WHERE 1=1
+    <if test="labelId != null and labelId != ''" >
+      ANd b.label_id = #{labelId}
+    </if>
+    GROUP BY a.id
+    ORDER BY a.article_date DESC
     LIMIT #{startRow},#{pageSize}
   </select>
 
