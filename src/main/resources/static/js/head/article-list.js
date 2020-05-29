@@ -52,6 +52,8 @@ $(function () {
             if (createPage) {
                 createPageNo(Math.ceil(res.count/6));
             }
+        }, function (err) {
+            
         });
     }
     //点击页码时请求数据
