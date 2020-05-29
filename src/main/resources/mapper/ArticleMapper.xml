@@ -176,6 +176,9 @@
     <if test="labelId != null and labelId != ''" >
       AND b.label_id = #{labelId}
     </if>
+    <if test="yearMonth != null and yearMonth != ''" >
+      AND DATE_FORMAT(a.article_date, '%Y-%m') = #{yearMonth}
+    </if>
     GROUP BY
     a.id
     ) aa
@@ -190,6 +193,9 @@
     WHERE 1=1
     <if test="labelId != null and labelId != ''" >
       ANd b.label_id = #{labelId}
+    </if>
+    <if test="yearMonth != null and yearMonth != ''" >
+      AND DATE_FORMAT(a.article_date, '%Y-%m') = #{yearMonth}
     </if>
     GROUP BY a.id
     ORDER BY a.article_date DESC

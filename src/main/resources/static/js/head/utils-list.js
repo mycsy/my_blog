@@ -24,6 +24,9 @@ var right_data = new Vue({
         },
         labelToArticle: function (labelId) {
             window.location.href="/page/head/article-list.html?labelId="+labelId;
+        },
+        dateToArticle: function (yearMonth) {
+            window.location.href="/page/head/article-list.html?yearMonth="+yearMonth;
         }
     },
     filters: {

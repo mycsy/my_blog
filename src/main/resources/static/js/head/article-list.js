@@ -1,5 +1,7 @@
 $(function () {
     var labelId = queryString('labelId');
+    var yearMonth = queryString('yearMonth');
+
     var articleList = new Vue({
         el: '#articleList',
         data: {
@@ -14,6 +16,9 @@ $(function () {
             },
             labelToArticle: function (labelId) {
                 window.location.href="/page/head/article-list.html?labelId="+labelId;
+            },
+            dateToArticle: function (yearMonth) {
+                window.location.href="/page/head/article-list.html?yearMonth="+yearMonth;
             }
         },
         filters: {
@@ -37,7 +42,8 @@ $(function () {
             page:pageNo,
             limit:6,
             paramMap: {
-                labelId: labelId
+                labelId: labelId,
+                yearMonth: yearMonth===null?yearMonth:yearMonth.substring(0, 7)
             }
         }
         jQuery.axspost('/front/article/page',JSON.stringify(params),function (res) {

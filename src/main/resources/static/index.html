@@ -104,7 +104,7 @@
             <aside class="widget">
               <div class="widget-title">归档</div>
               <ul>
-                <li v-for="articleByDate in articleByDateVoList"><a href="#">{{articleByDate.yearMonth}}({{articleByDate.articleCount}})</a></li>
+                <li v-for="articleByDate in articleByDateVoList"><a href="#" @click="dateToArticle(articleByDate.yearMonth)">{{articleByDate.yearMonth}}({{articleByDate.articleCount}})</a></li>
               </ul>
             </aside>
 

@@ -51,7 +51,11 @@ var article = new Vue({
         },
         labelToArticle: function (labelId) {
             window.location.href="/page/head/article-list.html?labelId="+labelId;
-        }    }
+        },
+        dateToArticle: function (yearMonth) {
+            window.location.href="/page/head/article-list.html?yearMonth="+yearMonth;
+        }
+    }
 });
 $(function () {
     var articleId = queryString('article_id');
