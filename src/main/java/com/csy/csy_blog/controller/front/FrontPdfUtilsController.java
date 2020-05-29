@@ -26,22 +26,36 @@ import java.util.List;
 @RequestMapping("/front/pdf")
 public class FrontPdfUtilsController {
     /**
-     * 获取所有标签
+     * 删除PDF文件的某一页
      */
     @RequestMapping("/delete/one")
     public void deleteOne(@RequestParam("file") MultipartFile file, HttpServletResponse response, int pageNum) {
         Result result = new Result();
         result.setSuccess(true);
         try {
-            /*
-            PdfReader pdfReader = new PdfReader(inputStream);
-            PDDocument document = new PDDocument();
-            document = PDDocument.load(inputStream);
-            document.save(response.getOutputStream());*/
             InputStream inputStream = file.getInputStream();
             PdfUtils.cutPdf(inputStream, pageNum, response);
         } catch (Exception e) {
 
+        }
+    }
+
+    /**
+     * 删除PDF多页
+     * @param file
+     * @param response
+     * @param from 起始页
+     * @param end 截止页
+     */
+    @RequestMapping("/delete/range")
+    public void deleteRange(@RequestParam("file") MultipartFile file, HttpServletResponse response, int from, int end) {
+        Result result = new Result();
+        result.setSuccess(true);
+        try {
+            InputStream inputStream = file.getInputStream();
+            PdfUtils.splitPDFFile(inputStream, response, from, end);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

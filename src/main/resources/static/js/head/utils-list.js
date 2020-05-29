@@ -1,15 +1,45 @@
 $(function () {
     //0.初始化fileinput
-    $('#txt_file').fileinput({
+    $('#pdf_file').fileinput({
             language: 'zh', //设置语言
             showUpload: false,
             showPreview:false,
             allowedFileTypes: ['pdf'],
             maxFileCount: 1
         })
+    $('#file').fileinput({
+        language: 'zh', //设置语言
+        showUpload: false,
+        showPreview:false,
+        allowedFileTypes: ['pdf'],
+        maxFileCount: 1
+    })
 });
 $('#delete_on_btn').click(function () {
+    if ($('#pdf_file').val() == null || $('#pdf_file').val() === '') {
+        toastr.error("请先上传PDF文件");
+        return false;
+    }
+    if ($('#pageNum').val() == null || $('#pageNum').val() === '') {
+        toastr.error("请填写删除的页码");
+        return false;
+    }
     $("#delete_one").attr("action", config.url + "/front/pdf/delete/one").submit();
+});
+$('#delete_range_btn').click(function () {
+    if ($('#file').val() == null || $('#file').val() === '') {
+        toastr.error("请先上传PDF文件");
+        return false;
+    }
+    if ($('#from').val() == null || $('#from').val() === '') {
+        toastr.error("请填写起始页码");
+        return false;
+    }
+    if ($('#end').val() == null || $('#end').val() === '') {
+        toastr.error("请填写结束页码");
+        return false;
+    }
+    $("#delete_range").attr("action", config.url + "/front/pdf/delete/range").submit();
 });
 console.log(JSON.parse($.cookie("top_list")))
 var right_data = new Vue({
