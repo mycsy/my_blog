@@ -157,6 +157,10 @@ function submitReply(commentId) {
     if ($.cookie("user_id") == null) {
         $('#login').modal("show");
     }
+    if ($('#comment').val().length === 0) {
+        toastr.error("请填写评论");
+        return false;
+    }
     var comment = {};
     article.comment_list.forEach(function (v, k) {
         if (v.id == commentId) {
@@ -188,9 +192,12 @@ function submitReply(commentId) {
 }
 //二级回复
 function replyAgain() {
-    console.log(reply_res)
     if ($.cookie("user_id") == null) {
         $('#login').modal("show");
+    }
+    if ($('#comment').val().length === 0) {
+        toastr.error("请填写评论");
+        return false;
     }
     var rep = {
         articleId: reply_res.articleId,

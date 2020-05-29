@@ -94,7 +94,7 @@
               <ul class="media-list list-unstyled lyear-comment">
                   <li v-for="comment in comment_list" :id="comment.id">
                       <div class="media">
-                          <img class="d-flex mr-3 rounded-circle" src="../../images/author.jpg" alt="花满楼">
+                          <img class="d-flex mr-3 rounded-circle" src="../../images/author.png" alt="花满楼">
                           <div class="media-body">
                               <a href="#!" class="text-custom reply-btn"  @click="goComment(comment)"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
                               <h4 class="media-heading"><a href="#!">{{comment.nickName}}</a></h4>
@@ -103,7 +103,7 @@
                           </div>
                       </div>
                       <ul class="comment-children">
-                          <li v-for="reply in comment.replyList" :id="">
+                          <li v-for="reply in comment.replyList">
                               <div class="media">
                                   <div class="media-body">
                                       <a href="#!" class="text-custom reply-btn" @click="goReply(comment, reply)"><i class="mdi mdi-reply"></i>&nbsp; 回复</a>
@@ -157,7 +157,7 @@
                 <div class="widget-title">热门文章</div>
                 <ul>
                     <li v-for="art in topList">
-                        <a href="#">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
+                        <a href="#" @click="go(art.id)">{{art.articleTitle}}</a> <span>{{art.articleDate | formatDate}}</span>
                     </li>
                 </ul>
             </aside>

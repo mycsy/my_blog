@@ -11,6 +11,7 @@ $(function () {
 $('#delete_on_btn').click(function () {
     $("#delete_one").attr("action", config.url + "/front/pdf/delete/one").submit();
 });
+console.log(JSON.parse($.cookie("top_list")))
 var right_data = new Vue({
     el: '#right-box',
     data: {
