@@ -46,14 +46,14 @@ $(function () {
                 yearMonth: yearMonth===null?yearMonth:yearMonth.substring(0, 7)
             }
         }
-        jQuery.axspost('/front/article/page',JSON.stringify(params),function (res) {
+        jQuery.axspost(config.url + '/front/article/page',JSON.stringify(params),function (res) {
             articleList.articleList = res.data;
             //创建分页标签
             if (createPage) {
                 createPageNo(Math.ceil(res.count/6));
             }
         }, function (err) {
-            
+
         });
     }
     //点击页码时请求数据
