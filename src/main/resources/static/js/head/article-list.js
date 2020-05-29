@@ -26,9 +26,20 @@ $(function () {
             }
         }
     });
-   jQuery.axspost('/front/article/page',JSON.stringify({page:1,limit:10}),function (res) {
-       articleList.articleList = res.data;
-       createPageNo(6);
-       console.log(res);
-   });
+    //创建页码
+    findPageInfo(1, true);
+    function findPageInfo(pageNo, createPage) {
+        jQuery.axspost('/front/article/page',JSON.stringify({page:pageNo,limit:6}),function (res) {
+            console.log(res)
+            articleList.articleList = res.data;
+            //创建分页标签
+            if (createPage) {
+                createPageNo(Math.ceil(res.count/6));
+            }
+        });
+    }
+    //点击页码时请求数据
+    $('body').on('click', '.page-item', function(){
+        findPageInfo($currentPageNo);
+    });
 });

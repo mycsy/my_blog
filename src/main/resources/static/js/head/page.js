@@ -14,13 +14,13 @@ function createPageNo(pageTitleNum) {
         if (pageNo === 1) {
             $showPage += '<li class="page-item active" id="'+pageNo+'" value="'+pageNo+'"><a class="page-link" href="#">'+pageNo+'</a></li>'
         } else if (pageNo > 5) {
-            $showPage += '<li class="page-item" id="'+pageNo+'" value="'+pageNo+'" hidden><a class="page-link" href="#">'+pageNo+'</a></li>'
+            $showPage += '<li class="page-item" id="'+pageNo+'" value="'+pageNo+'" style="display: none"><a class="page-link" href="#">'+pageNo+'</a></li>'
         } else {
             $showPage += '<li class="page-item" id="'+pageNo+'" value="'+pageNo+'"><a class="page-link" href="#">'+pageNo+'</a></li>'
         }
     }
     console.log($prePage + $showPage + $nextPage)
-    $thisPageNumber.html($prePage +$showPage + $nextPage);
+    $thisPageNumber.html($prePage + $showPage + $nextPage + '<li class="page-item" style="margin-top: 2px;margin-left: 5px">共&nbsp;('+pageTitleNum+')&nbsp;页</li>');
 }
 
 //监听点击事件
@@ -31,16 +31,25 @@ $('body').on('click', '.page-item', function(){
             return false;
         }
         $(".page-item").removeClass("active");
-        $('#'+ ($currentPageNo -1)).addClass("active");
-        alert('prePage');
+        $currentPageNo = $currentPageNo - 1;
+        $('#'+ $currentPageNo).addClass("active");
+        if ($maxPageNo > 5 && ($('#'+$currentPageNo).css('display')==='none')) {
+            $('#'+($currentPageNo)).css('display', 'block');
+            $('#'+($currentPageNo + 5)).css('display', 'none');
+        }
+
     } else if ($(this).attr('id') === "nextPage") {
         //点击下一页
         if ($currentPageNo >= $maxPageNo) {
             return false;
         }
         $(".page-item").removeClass("active");
-        $('#'+ ($currentPageNo + 1)).addClass("active");
-        
+        $currentPageNo = $currentPageNo + 1;
+        $('#'+ ($currentPageNo)).addClass("active");
+        if ($maxPageNo > 5 && ($('#'+$currentPageNo).css('display')==='none')) {
+            $('#'+($currentPageNo)).css('display', 'block');
+            $('#'+($currentPageNo - 5)).css('display', 'none');
+        }
     } else {
         //点击号码页
         $(".page-item").removeClass("active");

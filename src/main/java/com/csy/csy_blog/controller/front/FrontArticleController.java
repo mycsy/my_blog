@@ -61,8 +61,12 @@ public class FrontArticleController {
         Result result = new Result();
         result.setSuccess(true);
         try {
-            List<Article> articleList = (List<Article>)articleService.findPageInfo(query).getRows();
+            QueryResult<Article> queryResult = articleService.findPageInfo(query);
+            //为文章添加标签
+            List<Article> articleList = (List<Article>)queryResult.getRows();
             List<ArticleVo> voList = labelService.fillAutoLabelForArticle(articleList);
+            //返回总数和页面文章
+            result.addModel("count", queryResult.getTotal());
             result.addModel("data", voList);
         } catch (Exception e) {
 
