@@ -48,8 +48,10 @@ var article = new Vue({
             parentLi.after(respond.prop("outerHTML"));
             $("#comment_parent").val(parentID);
             $('.cancel-comment-reply').show();
-        }
-    }
+        },
+        labelToArticle: function (labelId) {
+            window.location.href="/page/head/article-list.html?labelId="+labelId;
+        }    }
 });
 $(function () {
     var articleId = queryString('article_id');

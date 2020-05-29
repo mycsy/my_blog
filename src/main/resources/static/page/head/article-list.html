@@ -122,7 +122,7 @@
               <aside class="widget widget-tag-cloud">
                   <div class="widget-title">标签</div>
                   <div class="label-list">
-                      <a v-for="label in labelList" href="#" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
+                      <a v-for="label in labelList" href="#" @click="labelToArticle(label.id)" class="label-box">{{label.labelName}}({{label.articleCount}})</a>
                   </div>
               </aside>
           </div>

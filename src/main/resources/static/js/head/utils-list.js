@@ -21,6 +21,9 @@ var right_data = new Vue({
     methods: {
         go: function (article_id) {
             window.location.href="article-detail.html?article_id="+article_id;
+        },
+        labelToArticle: function (labelId) {
+            window.location.href="/page/head/article-list.html?labelId="+labelId;
         }
     },
     filters: {
