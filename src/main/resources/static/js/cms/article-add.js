@@ -16,10 +16,13 @@ $(function(){
         focus: true,
         lang: 'zh-CN',
         // 重写图片上传
-        onImageUpload: function (files, editor, $editable) {
-            sendFile(files[0], editor, $editable);
+        callbacks: {
+            onImageUpload: function (files, editor, $editable) {
+                uploadSummerPic(files[0], editor, $editable);
+            }
         }
     });
+
     var markupStr = 'hello world!';
     $('#article_content').summernote('code', markupStr);// 赋值
 });
@@ -52,3 +55,20 @@ $('#save').click(function () {
         toastr.error("标签添添加失败，请重试");
     })
 });
+/*summernote的图片上传*/
+function uploadSummerPic(file) {
+    debugger
+    var fd = new FormData();
+    fd.append("img", file);
+    $.ajax({
+        type:"POST",
+        url:config.url + "/common/upload/image",
+        data: fd,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+            $('#article_content').summernote('insertImage', "http://image.csy666.club", res.fileName);
+        }
+    });
+}
