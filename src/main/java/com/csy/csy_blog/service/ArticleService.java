@@ -58,4 +58,10 @@ public interface ArticleService{
      * 按时间归档文章
      */
     List<ArticleByDateVo> findArticleByDateList();
+
+    /**
+     * 编辑文章
+     * @param param
+     */
+    void edit(ArticleVo param);
 }

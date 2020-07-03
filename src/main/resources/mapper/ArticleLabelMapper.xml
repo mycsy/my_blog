@@ -81,4 +81,7 @@
       )
     </foreach>
   </insert>
+  <delete id="deleteByArticleId">
+    DELETE FROM article_label WHERE article_id =#{articleId}
+  </delete>
 </mapper>

@@ -226,4 +226,12 @@
     GROUP BY DATE_FORMAT(article_date,'%Y-%m')
     ORDER BY article_date DESC
   </select>
+
+  <update id="editArticle" parameterType="com.csy.csy_blog.vomain.ArticleVo">
+    update article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_introduction = #{articleIntroduction,jdbcType=VARCHAR},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
 </mapper>

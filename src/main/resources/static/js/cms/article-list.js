@@ -52,7 +52,7 @@ function actionFormatter(value, row, index) {
     var id = value;
     var result = "";
     result += "<a href='javascript:;' class='btn btn-xs green' onclick=\"findDetailById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"editArticle('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
     return result;
 }
 
@@ -63,10 +63,15 @@ function queryParams(params) {
     }
     return JSON.stringify(query);
 }
+//新增文章
 $('#addArticle').click(function () {
     window.location.href = 'article-add.html'
 });
-
+//查看文章详情
 function findDetailById(articleId) {
     window.location.href = 'article-detail.html?article_id='+ articleId;
+}
+//编辑文章
+function editArticle(articleId) {
+    window.location.href = 'article-edit.html?article_id='+ articleId;
 }

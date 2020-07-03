@@ -18,4 +18,6 @@ public interface ArticleLabelMapper {
     int updateByPrimaryKey(ArticleLabel record);
 
     void insertBatch(List<ArticleLabel> list);
+
+    void deleteByArticleId(Long articleId);
 }

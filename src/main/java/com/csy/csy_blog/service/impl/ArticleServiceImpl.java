@@ -142,4 +142,22 @@ public class ArticleServiceImpl implements ArticleService{
     public List<ArticleByDateVo> findArticleByDateList() {
         return articleMapper.findArticleByDateList();
     }
+
+    @Override
+    public void edit(ArticleVo param) {
+        //编辑文章内容
+        articleMapper.editArticle(param);
+        //删除原有的标签关系
+        articleLabelMapper.deleteByArticleId(param.getId());
+        //添加新的标签关系
+        List<ArticleLabel> als = new ArrayList<>();
+        for (LabelVo vo : param.getLabelList()) {
+            ArticleLabel al = new ArticleLabel();
+            al.setId(snowflakeIdWorker.nextId());
+            al.setArticleId(param.getId());
+            al.setLabelId(vo.getId());
+            als.add(al);
+        }
+        articleLabelMapper.insertBatch(als);
+    }
 }
