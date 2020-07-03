@@ -8,6 +8,7 @@ import com.csy.csy_blog.pojo.Result;
 import com.csy.csy_blog.service.ArticleService;
 import com.csy.csy_blog.utils.ResultHelper;
 import com.csy.csy_blog.vomain.ArticleVo;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +44,7 @@ public class CmsArticleController {
         try {
             articleService.create(param);
         } catch (Exception e) {
-
+            result.setError(result, "文章创建失败!", e);
         }
         return ResultHelper.renderAsJsonWipeData(result);
     }

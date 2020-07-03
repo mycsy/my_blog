@@ -16,7 +16,7 @@ spring:
     url: jdbc:mysql://180.76.242.43:3306/my-blog?serverTimezone=GMT
     username: root
     password: caigege521
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 mybatis:
   typeAliasesPackage: com.csy.csy_blog.dao

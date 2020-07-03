@@ -8,6 +8,7 @@ import com.csy.csy_blog.pojo.QueryResult;
 import com.csy.csy_blog.pojo.Result;
 import com.csy.csy_blog.service.LabelService;
 import com.csy.csy_blog.utils.ResultHelper;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +44,7 @@ public class CmsLabelController {
         try {
             labelService.create(label);
         } catch (Exception e) {
-
+            result.setError(result, "标签创建失败!", e);
         }
         return ResultHelper.renderAsJsonWipeData(result);
     }
@@ -56,7 +57,7 @@ public class CmsLabelController {
             List<Label> labelList = labelService.findAllLabel();
             result.addModel("data", labelList);
         } catch (Exception e) {
-
+            result.setError(result, "标签查询失败!", e);
         }
         return ResultHelper.renderAsJsonWipeData(result);
     }}

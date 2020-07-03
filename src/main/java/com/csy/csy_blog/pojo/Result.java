@@ -1,8 +1,11 @@
 package com.csy.csy_blog.pojo;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Log4j2
 public class Result {
 
 	
@@ -69,4 +72,9 @@ public class Result {
 		return this.model;
 	}
 
+	public void setError(Result result, String errorMsg, Exception e) {
+		result.setMessage(errorMsg);
+		result.setSuccess(false);
+		log.error(errorMsg+"--->{}", e);
+	}
 }

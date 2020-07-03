@@ -50,9 +50,12 @@ $('#save').click(function () {
             setTimeout(function() {
                 window.location.href = 'article-list.html';
             }, 2000)
+        } else {
+            toastr.error("文章添加失败，请重试");
+            return false;
         }
     },function () {
-        toastr.error("标签添添加失败，请重试");
+        toastr.error("文章添加失败，请重试");
     })
 });
 /*summernote的图片上传*/
