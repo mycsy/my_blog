@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章新增</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap/table/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="../../bootstrap/summernote.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.min.css" />
+</head>
+<body>
+<div>
+    <ol class="breadcrumb">
+        <li class="active">菜单</li>
+        <li class="active">文章详情</li>
+    </ol>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <center>
+            <article class="lyear-arc" id="article">
+                <div class="arc-header">
+                    <h2 class="arc-title"><a href="#">{{article.articleTitle}}</a></h2>
+                    <ul class="arc-meta">
+                        <li><i class="mdi mdi-calendar"></i> {{article.articleDate}}</li>
+                        <!--<li><i class="mdi mdi-thumb-up-outline"></i> <a href="#">{{article.articleLikeCount}} 点赞</a></li>-->
+                        <li><i class="mdi mdi-file-eye-outline"></i> <a href="#">{{article.articleViews}} 阅读</a></li>
+                        <!--<li><i class="mdi mdi-comment-multiple-outline"></i> <a href="#">3 评论</a></li>-->
+                        <li><i class="mdi mdi-tag-text-outline"></i> <a href="#" >{{article.labelList | labHandle}}&nbsp;</a></li>
+                    </ul>
+                </div>
+            </article>
+            </center>
+            <div id="articleContent">
+
+            </div>
+            <center><a class="btn btn-primary" href="javascript:void(history.back())">返回文章列表</a></center>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/ajax.js"></script>
+<script src="../../bootstrap/toastr.min.js"></script>
+<script src="../../js/config.js"></script>
+<script src="../../css/bootstrap.min.js"></script>
+<script src="../../bootstrap/table/bootstrap-table.min.js"></script>
+<script src="../../bootstrap/table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../bootstrap/summernote.js"></script>
+<script src="../../bootstrap/summernote-zh-CN.min.js"></script>
+<script src="../../js/vue/vue.min.js"></script>
+<script src="../../js/config.js"></script>
+<script src="../../js/cms/article-detail.js"></script>
+</html>

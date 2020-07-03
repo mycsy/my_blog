@@ -48,4 +48,20 @@ public class CmsArticleController {
         }
         return ResultHelper.renderAsJsonWipeData(result);
     }
+
+    /**
+     * 查询文章详情
+     */
+    @RequestMapping("/find/detail")
+    public JSONObject create(Long articleId) {
+        Result result = new Result();
+        result.setSuccess(true);
+        try {
+            ArticleVo vo = articleService.findById(articleId);
+            result.addModel("data", vo);
+        } catch (Exception e) {
+            result.setError(result, "文章查询失败!", e);
+        }
+        return ResultHelper.renderAsJsonWipeData(result);
+    }
 }

@@ -19,7 +19,7 @@ $('#article_table').bootstrapTable({
         },
         {
             field: 'articleIntroduction',
-            title: '文章简介'
+            title: '文章简介',
         },
         {
             field: 'articleViews',
@@ -37,9 +37,9 @@ $('#article_table').bootstrapTable({
             align: 'center'
         },
         {
-            field: 'price',
+            field: 'id',
             title: '操作',
-            width: 120,
+            width: 80,
             align: 'center',
             valign: 'middle',
             formatter: actionFormatter,
@@ -51,14 +51,12 @@ $('#article_table').bootstrapTable({
 function actionFormatter(value, row, index) {
     var id = value;
     var result = "";
-    result += "<a href='javascript:;' class='btn btn-xs green' onclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
+    result += "<a href='javascript:;' class='btn btn-xs green' onclick=\"findDetailById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
     result += "<a href='javascript:;' class='btn btn-xs blue' onclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
-    result += "<a href='javascript:;' class='btn btn-xs red' onclick=\"DeleteByIds('" + id + "')\" title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
     return result;
 }
 
 function queryParams(params) {
-    console.log(params);
     var query = {
         page: this.pageNumber,
         limit: this.pageSize
@@ -68,3 +66,7 @@ function queryParams(params) {
 $('#addArticle').click(function () {
     window.location.href = 'article-add.html'
 });
+
+function findDetailById(articleId) {
+    window.location.href = 'article-detail.html?article_id='+ articleId;
+}

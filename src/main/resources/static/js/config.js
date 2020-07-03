@@ -30,6 +30,6 @@ function timeStamp2String(time, format){
     if (format === 'yyyy-MM-dd') {
         return year + "-" + month + "-" + date+" ";
     } else {
-        return year + "-" + month + "-" + date + " " + hour + '-' + minute + '-' + second;
+        return year + "-" + month + "-" + date + " " + hour + ':' + minute + ':' + second;
     }
 }
