@@ -76,7 +76,7 @@
             "display": "block",
             "pointerEvents": "none",
             "z-index": "10000000",
-            "fontSize": "20px",
+            "fontSize": "15px",
             "will-change": "transform"
         };
 
@@ -89,7 +89,6 @@
 
             this.position = {x: x - 10, y: y - 20};
             this.initialStyles.color = color;
-            console.log(color);
 
             this.element = document.createElement('span');
             this.element.innerHTML = this.character;
