@@ -6,13 +6,13 @@ import java.util.Date;
 
 @Data
 public class UserInfo {
-    private Long id;
+    private Long id;//主键
 
-    private String userName;
+    private String userName;//用户名
 
-    private String password;
+    private String password;//密码
 
-    private String nickName;
+    private String nickName;//用户昵称
 
-    private Date createTime;
+    private Date createTime;//创建时间
 }
